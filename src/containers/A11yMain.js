@@ -28,7 +28,16 @@ export default class A11yMain extends Component {
     const apiKey = document.getElementById('api-key').value;
     const urlList = document.getElementById('url-list').value.split('\n');
     const totalProgress = urlList.length * 2 - 0.8;
-    const errorData = { categories: { error: { count: 'n/a' }, alert: { count: 'n/a' }, contrast: { count: 'n/a' }, feature: { count: 'n/a' }, structure: { count: 'n/a' }, html5: { count: 'n/a' } } };
+    const errorData = {
+      categories: {
+        error: { count: 'n/a' },
+        alert: { count: 'n/a' },
+        contrast: { count: 'n/a' },
+        feature: { count: 'n/a' },
+        structure: { count: 'n/a' },
+        html5: { count: 'n/a' },
+      },
+    };
     let progressed = 1;
 
     this.setState({ scanType: '', isFetching: true, scanData: [], totalProgress });
@@ -53,7 +62,13 @@ export default class A11yMain extends Component {
           callback(null, { entry, error: 'Error:', data: errorData });
         });
     }, (err, results) => {
-      this.setState({ scanType, isFetching: false, scanData: results, totalProgress: 0, progressed: 1 });
+      this.setState({
+        scanType,
+        isFetching: false,
+        scanData: results,
+        totalProgress: 0,
+        progressed: 1,
+      });
     });
   }
 
@@ -83,7 +98,14 @@ export default class A11yMain extends Component {
             <ButtonInput value="Scan URLs" onClick={this.scanURLs} />
           </form>
           {this.state.isFetching ?
-            <ProgressBar active bsStyle="success" striped max={this.state.totalProgress} now={this.state.progressed} /> : null
+            <ProgressBar
+              active
+              striped
+              bsStyle="success"
+              max={this.state.totalProgress}
+              now={this.state.progressed}
+            />
+            : null
           }
         </Panel>
         <ResultsPanel data={this.state.scanData} scanType={this.state.scanType} />
