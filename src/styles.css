@@ -123,9 +123,14 @@ footer {
   background-color: #2a2727;
   color: white;
   flex-shrink: 0;
-  padding: 8px 0;
+  padding: 16px 0 8px;
   text-align: center;
   width: 100%;
+  
+  a, a:hover {
+    border-bottom-color: white;
+    color: white;
+  }
 }
 
 /* Tablesort styling */
