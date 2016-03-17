@@ -17,7 +17,7 @@ const DetailedSubPanel = ({ style, id, header, data }) => (
       <tbody>
         {map(data.items, (item) =>
           <tr key={item.id}>
-            <td>{item.id}</td>
+            <td scope="row">{item.id}</td>
             <td>{item.count}</td>
             <td>{item.description}</td>
           </tr>
