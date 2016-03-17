@@ -4,7 +4,7 @@ import { Panel, PanelGroup } from 'react-bootstrap';
 import map from 'lodash.map';
 
 const DetailedPanel = ({ data }) => (
-  <Panel header={<h2>Scan Results</h2>}>
+  <Panel collapsible defaultExpanded header={<h2>Detailed Report</h2>}>
     {map(data, (item) =>
       <PanelGroup key={data.indexOf(item)}>
         <Panel collapsible header={<h3>{item.entry}</h3>}>
