@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ResultsPanel } from '../components';
+import { SummaryTable, DetailedPanel } from '../components';
 import { Panel, Input, ButtonInput, ProgressBar } from 'react-bootstrap';
 import Async from 'async';
 
@@ -8,9 +8,9 @@ export default class A11yMain extends Component {
     super();
 
     this.state = {
-      scanType: '',
       isFetching: false,
-      scanData: [],
+      summaryData: [],
+      detailedData: [],
       progressed: 1,
       totalProgress: 0,
     };
@@ -24,10 +24,10 @@ export default class A11yMain extends Component {
   }
 
   scanURLs() {
-    const scanType = document.getElementById('scan-type').value;
+    const scanType = Number(document.getElementById('scan-type').value);
     const apiKey = document.getElementById('api-key').value;
     const urlList = document.getElementById('url-list').value.split('\n');
-    const totalProgress = urlList.length * 2 - 0.8;
+    const totalProgress = urlList.length * 2;
     const errorData = {
       categories: {
         error: { count: 'n/a' },
@@ -40,12 +40,18 @@ export default class A11yMain extends Component {
     };
     let progressed = 1;
 
-    this.setState({ scanType: '', isFetching: true, scanData: [], totalProgress });
+    this.setState({ isFetching: true, totalProgress });
+
+    if (scanType === 1) {
+      this.setState({ summaryData: [] });
+    } else if (scanType === 2) {
+      this.setState({ detailedData: [] });
+    }
 
     Async.map(urlList, (urlEntry, callback) => {
       let entry = urlEntry;
 
-      entry = entry.trim();
+      entry = entry.trim().replace(/.*?:\/\//g, '');
 
       fetch(`//wave.webaim.org/api/request?key=${apiKey}&url=${entry}&reporttype=${scanType}`)
         .then((response) => {
@@ -62,38 +68,57 @@ export default class A11yMain extends Component {
           callback(null, { entry, error: 'Error:', data: errorData });
         });
     }, (err, results) => {
-      this.setState({
-        scanType,
-        isFetching: false,
-        scanData: results,
-        totalProgress: 0,
-        progressed: 1,
-      });
+      if (scanType === 1) {
+        this.setState({
+          isFetching: false,
+          summaryData: results,
+          totalProgress: 0,
+          progressed: 1,
+        });
+      } else if (scanType === 2) {
+        this.setState({
+          isFetching: false,
+          detailedData: results,
+          totalProgress: 0,
+          progressed: 1,
+        });
+      }
     });
   }
 
   render() {
     return (
       <div className="main">
-        <Panel collapsible defaultExpanded header={<h2>Scan Info.</h2>}>
+        <Panel header={<h2>Scan Info.</h2>}>
           <form onSubmit={this.preventDefault}>
-            <Input type="select" label="Scan Type" id="scan-type" defaultValue="1">
-              <optgroup label="Scan Type">
-                <option value="1">Summary</option>
-                <option value="2">Detailed</option>
-              </optgroup>
-            </Input>
-            <Input
-              type="text"
-              label="WAVE API Key"
-              id="api-key"
-              placeholder="Enter WAVE API key"
-            />
+            <div className="options-key-container">
+              <Input
+                type="select"
+                className="type-select"
+                label="Scan Type"
+                id="scan-type"
+                defaultValue="1"
+              >
+                <optgroup label="Scan Type">
+                  <option value="1">Summary (1 credit)</option>
+                  <option value="2">Detailed (2 credits)</option>
+                </optgroup>
+              </Input>
+              <Input
+                className="key-text"
+                type="text"
+                label="WAVE API Key"
+                id="api-key"
+                placeholder="Enter WAVE API key"
+              />
+            </div>
             <Input
               type="textarea"
+              spellcheck="false"
               label="URL List"
               id="url-list"
-              placeholder="Enter a carriage return separated URL list to scan"
+              placeholder="Enter a carriage return separated URL list to scan.
+              The protocol (http or https) is not necessary and will be stripped from the results."
             />
             <ButtonInput value="Scan URLs" onClick={this.scanURLs} />
           </form>
@@ -102,13 +127,19 @@ export default class A11yMain extends Component {
               active
               striped
               bsStyle="success"
+              label="%(percent)s%"
               max={this.state.totalProgress}
               now={this.state.progressed}
             />
             : null
           }
         </Panel>
-        <ResultsPanel data={this.state.scanData} scanType={this.state.scanType} />
+        {this.state.summaryData.length !== 0 &&
+          <SummaryTable data={this.state.summaryData} />
+        }
+        {this.state.detailedData.length !== 0 &&
+          <DetailedPanel data={this.state.detailedData} />
+        }
       </div>
     );
   }
