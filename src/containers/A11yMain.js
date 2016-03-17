@@ -114,7 +114,7 @@ export default class A11yMain extends Component {
             </div>
             <Input
               type="textarea"
-              spellcheck="false"
+              spellCheck="false"
               label="URL List"
               id="url-list"
               placeholder="Enter a carriage return separated URL list to scan.

@@ -7,32 +7,33 @@ export default class SummaryTable extends Component {
     return (
       <Panel collapsible defaultExpanded header={<h2>Summary Report</h2>}>
         <Table id="sum-table" fill striped bordered condensed hover responsive on>
+          <caption className="sr-only">Summary results</caption>
           <thead>
             <tr>
-              <th scope="col" className="no-sort">Site URL</th>
+              <th scope="col" className="no-sort">SITE URL</th>
               <th scope="col"
                 data-sort-method="number"
                 className="th-errors"
               >
-                Errors
+                ERRORS
               </th>
               <th scope="col"
                 data-sort-method="number"
                 className="th-alerts"
               >
-                Alerts
+                ALERTS
               </th>
               <th scope="col"
                 data-sort-method="number"
                 className="th-features"
               >
-                Features
+                FEATURES
               </th>
               <th scope="col"
                 data-sort-method="number"
                 className="th-structure"
               >
-                Structure
+                STRUCTURE
               </th>
               <th scope="col"
                 data-sort-method="number"
@@ -44,21 +45,21 @@ export default class SummaryTable extends Component {
                 data-sort-method="number"
                 className="th-contrast"
               >
-                Contrast
+                CONTRAST
               </th>
             </tr>
           </thead>
           <tbody>
             {map(this.props.data, (item) =>
               <tr key={this.props.data.indexOf(item)}>
-                <td scope="row">
+                <th scope="row">
                   <a href={`//${item.entry}`} target="_blank">
                     {item.error &&
                       <span className="row-err">{item.error}</span>
                     }
                     {` ${item.entry}`}
                   </a>
-                </td>
+                </th>
                 <td>{item.data.categories.error.count}</td>
                 <td>{item.data.categories.alert.count}</td>
                 <td>{item.data.categories.feature.count}</td>

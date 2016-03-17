@@ -42,7 +42,7 @@ header {
   padding: 32px 0 12px;
   width: 98%;
 }
-h2 {
+h2.panel-title {
   font-size: 18px;
   font-weight: 600;
 }
@@ -76,7 +76,7 @@ a:hover, a:active {
 #sum-table {
   margin-bottom: 0;
 }
-.results-table tr td:first-child {
+.results-table tr th:first-child {
   width: 35%;
 }
 .results-table tr td:last-child {

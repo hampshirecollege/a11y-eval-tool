@@ -13,31 +13,37 @@ const DetailedPanel = ({ data }) => (
           <DetailedSubPanel
             style="danger"
             header={<h4>Errors: {item.data.categories.error.count}</h4>}
+            caption="Errors"
             data={item.data.categories.error}
           />
           <DetailedSubPanel
             style="warning"
             header={<h4>Alerts: {item.data.categories.alert.count}</h4>}
+            caption="Alerts"
             data={item.data.categories.alert}
           />
           <DetailedSubPanel
             style="success"
             header={<h4>Features: {item.data.categories.feature.count}</h4>}
+            caption="Features"
             data={item.data.categories.feature}
           />
           <DetailedSubPanel
             style="info"
             header={<h4>Structure: {item.data.categories.structure.count}</h4>}
+            caption="Structure"
             data={item.data.categories.structure}
           />
           <DetailedSubPanel
             id={`bs-html5-${data.indexOf(item)}`}
             header={<h4>HTML5 & ARIA: {item.data.categories.html5.count}</h4>}
+            caption="HTML5 and ARIA"
             data={item.data.categories.html5}
           />
           <DetailedSubPanel
             id={`bs-contrast-${data.indexOf(item)}`}
             header={<h4>Contrast: {item.data.categories.contrast.count}</h4>}
+            caption="Contrast"
             data={item.data.categories.contrast}
           />
         </Panel>
