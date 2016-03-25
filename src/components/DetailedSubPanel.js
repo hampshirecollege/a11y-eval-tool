@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Panel, Table } from 'react-bootstrap';
+import { Panel, Table } from 'react-bootstrap-15';
 import map from 'lodash.map';
 
 const DetailedSubPanel = ({ style, id, header, caption, data }) => (
