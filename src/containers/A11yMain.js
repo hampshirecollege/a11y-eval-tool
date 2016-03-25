@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SummaryTable, DetailedPanel } from '../components';
-import { Panel, Input, ButtonInput, ProgressBar } from 'react-bootstrap';
+import { Panel, Input, ButtonInput, ProgressBar } from 'react-bootstrap-15';
 import Async from 'async';
 
 export default class A11yMain extends Component {
