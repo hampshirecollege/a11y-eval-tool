@@ -49,7 +49,6 @@
     "react": "^15.0.0-rc.2",
     "react-a11y": "^0.2.8",
     "react-bootstrap": "^0.28.3",
-    "react-bootstrap-15": "^0.29.0",
     "react-dom": "^15.0.0-rc.2",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.0",

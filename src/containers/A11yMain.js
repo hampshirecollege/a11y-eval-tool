@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SummaryTable, DetailedPanel } from '../components';
-import { Panel, Input, ButtonInput, ProgressBar } from 'react-bootstrap-15';
+import { Panel, Input, ButtonInput, ProgressBar } from 'react-bootstrap';
 import Async from 'async';
 
 export default class A11yMain extends Component {
@@ -110,6 +110,7 @@ export default class A11yMain extends Component {
                 label="WAVE API Key"
                 id="api-key"
                 placeholder="Enter WAVE API key"
+                value="Msi1dZQK402"
               />
             </div>
             <Input

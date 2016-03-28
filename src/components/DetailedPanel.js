@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { DetailedSummaryTable, DetailedSubPanel } from '../components';
-import { Panel, PanelGroup } from 'react-bootstrap-15';
+import { Panel, PanelGroup } from 'react-bootstrap';
 import map from 'lodash.map';
 
 const DetailedPanel = ({ data }) => (

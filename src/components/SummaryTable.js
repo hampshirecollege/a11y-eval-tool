@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Panel, Table } from 'react-bootstrap-15';
+import { Panel, Table } from 'react-bootstrap';
 import map from 'lodash.map';
 
 export default class SummaryTable extends Component {

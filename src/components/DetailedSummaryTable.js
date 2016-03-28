@@ -1,8 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { Table } from 'react-bootstrap-15';
-import map from 'lodash.map';
+import React, { PropTypes } from 'react';
+import { Table } from 'react-bootstrap';
 
-const DetailedSummaryTable = ({ entry, categories }) => (
+const DetailedSummaryTable = ({ categories }) => (
   <Table id="sum-table" fill striped bordered condensed hover responsive on>
     <caption className="sr-only">Summary results</caption>
     <thead>
