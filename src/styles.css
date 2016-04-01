@@ -45,10 +45,6 @@ header {
 h2.panel-title {
   font-size: 18px;
   font-weight: 600;
-  
-  a, a:hover {
-    border-bottom: 0;
-  }
 }
 .options-key-container {
   display: flex;
@@ -64,10 +60,6 @@ h2.panel-title {
 textarea {
   min-height: 140px;
   max-width: 100%;
-}
-.button-container div {
-  display: inline-block;
-  padding-right: 20px;
 }
 .progress-bar {
   mind-width: 2em;
@@ -123,115 +115,6 @@ div[id^="bs-contrast"] .panel-heading {
   background-color: #666666;
   border-color: #999999;
   color: #ffffff;
-}
-.nav.nav-tabs .tab-error {
-  a {
-    background-color: #f2dede;
-    color: #a94442;
-  }  
-  a:hover {
-    border: 1px solid #a94442;
-    border-bottom-color: transparent;
-    font-weight: 600;
-    height:105%;
-  }
-  &.active>a, &.active>a:focus, &.active>a:hover {
-    background-color: #f2dede;
-    border: 1px solid #a94442;
-    border-bottom-color: transparent;
-    color: #a94442;
-    font-weight: 600;
-  }
-}
-.nav.nav-tabs .tab-alert {
-  a {
-    background-color: #fcf8e3;
-    color: #8a6d3b;
-  }  
-  a:hover {
-    border: 1px solid #8a6d3b;
-    border-bottom-color: transparent;
-    font-weight: 600;
-  }
-  &.active>a, &.active>a:focus, &.active>a:hover {
-    background-color: #fcf8e3;
-    border: 1px solid #8a6d3b;
-    border-bottom-color: transparent;
-    color: #8a6d3b;
-    font-weight: 600;
-  }
-}
-.nav.nav-tabs .tab-feature {
-  a {
-    background-color: #dff0d8;
-    color: #3c763d;
-  }  
-  a:hover {
-    border: 1px solid #3c763d;
-    border-bottom-color: transparent;
-    font-weight: 600;
-  }
-  &.active>a, &.active>a:focus, &.active>a:hover {
-    background-color: #dff0d8;
-    border: 1px solid #3c763d;
-    border-bottom-color: transparent;
-    color: #3c763d;
-    font-weight: 600;
-  }
-}
-.nav.nav-tabs .tab-structure {
-  a {
-    background-color: #d9edf7;
-    color: #31708f;
-  }  
-  a:hover {
-    border: 1px solid #31708f;
-    border-bottom-color: transparent;
-    font-weight: 600;
-  }
-  &.active>a, &.active>a:focus, &.active>a:hover {
-    background-color: #d9edf7;
-    border: 1px solid #31708f;
-    border-bottom-color: transparent;
-    color: #31708f;
-    font-weight: 600;
-  }
-}
-.nav.nav-tabs .tab-html5 {
-  a {
-    background-color: #e8eaf8;
-    color: #656789;
-  }  
-  a:hover {
-    border: 1px solid #656789;
-    border-bottom-color: transparent;
-    font-weight: 600;
-  }
-  &.active>a, &.active>a:focus, &.active>a:hover {
-    background-color: #e8eaf8;
-    border: 1px solid #656789;
-    border-bottom-color: transparent;
-    color: #656789;
-    font-weight: 600;
-  }
-}
-.nav.nav-tabs .tab-contrast {
-  a {
-    background-color: #666666;
-    color: #ffffff;
-  }  
-  a:hover {
-    border: 1px solid #ffffff;
-    border-bottom-color: transparent;
-    font-weight: 600;
-  }
-  &.active>a, &.active>a:focus, &.active>a:hover {
-    background-color: #666666;
-    border: 1px solid #666666;
-    border-bottom-color: transparent;
-    color: #ffffff;
-    font-weight: 600;
-  }
 }
 .row-err {
   background-color: #f2dede;
