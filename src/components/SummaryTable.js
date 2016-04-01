@@ -5,48 +5,18 @@ import map from 'lodash.map';
 export default class SummaryTable extends Component {
   render() {
     return (
-      <Panel collapsible defaultExpanded header={<h2>Summary Report</h2>}>
+      <Panel aria-live="polite" header={<h2>Summary Report</h2>}>
         <Table id="sum-table" fill striped bordered condensed hover responsive on>
           <caption className="sr-only">Summary results</caption>
           <thead>
             <tr>
-              <th scope="col" className="no-sort">SITE URL</th>
-              <th scope="col"
-                data-sort-method="number"
-                className="th-errors"
-              >
-                ERRORS
-              </th>
-              <th scope="col"
-                data-sort-method="number"
-                className="th-alerts"
-              >
-                ALERTS
-              </th>
-              <th scope="col"
-                data-sort-method="number"
-                className="th-features"
-              >
-                FEATURES
-              </th>
-              <th scope="col"
-                data-sort-method="number"
-                className="th-structure"
-              >
-                STRUCTURE
-              </th>
-              <th scope="col"
-                data-sort-method="number"
-                className="th-html5"
-              >
-                HTML5 and ARIA
-              </th>
-              <th scope="col"
-                data-sort-method="number"
-                className="th-contrast"
-              >
-                CONTRAST
-              </th>
+              <th scope="col">SITE URL</th>
+              <th className="th-errors" scope="col">ERRORS</th>
+              <th className="th-alerts" scope="col">ALERTS</th>
+              <th className="th-features" scope="col">FEATURES</th>
+              <th className="th-structure" scope="col">STRUCTURE</th>
+              <th className="th-html5" scope="col">HTML5 and ARIA</th>
+              <th className="th-contrast" scope="col">CONTRAST</th>
             </tr>
           </thead>
           <tbody>
