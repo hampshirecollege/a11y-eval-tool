@@ -1,58 +1,85 @@
-import React, { PropTypes } from 'react';
-import { DetailedSummaryTable, DetailedSubPanel } from '../components';
-import { Panel, PanelGroup } from 'react-bootstrap';
+import React, { Component, PropTypes } from 'react';
+import { DetailedSubPanel } from '../components';
+import { Panel, PanelGroup, Tabs, Tab } from 'react-bootstrap';
 import map from 'lodash.map';
 
-const DetailedPanel = ({ data }) => (
-  <Panel collapsible defaultExpanded header={<h2>Detailed Report</h2>}>
-    {map(data, (item) =>
-      <PanelGroup key={data.indexOf(item)}>
-        <Panel header={<h3><a href={`//${item.entry}`} target="_blank">{item.entry}</a></h3>}>
-          {/* TODO refactor this, map categories to subpanels */}
-          <DetailedSummaryTable entry={item.entry} categories={item.data.categories} />
-          <Panel collapsible header={`Detailed report for ${item.entry}`}>
-            <DetailedSubPanel
-              style="danger"
-              header={<h4>Errors: {item.data.categories.error.count}</h4>}
-              caption={`Errors for ${item.entry}`}
-              data={item.data.categories.error}
-            />
-            <DetailedSubPanel
-              style="warning"
-              header={<h4>Alerts: {item.data.categories.alert.count}</h4>}
-              caption={`Alerts for ${item.entry}`}
-              data={item.data.categories.alert}
-            />
-            <DetailedSubPanel
-              style="success"
-              header={<h4>Features: {item.data.categories.feature.count}</h4>}
-              caption={`Features for ${item.entry}`}
-              data={item.data.categories.feature}
-            />
-            <DetailedSubPanel
-              style="info"
-              header={<h4>Structure: {item.data.categories.structure.count}</h4>}
-              caption={`Structure items for ${item.entry}`}
-              data={item.data.categories.structure}
-            />
-            <DetailedSubPanel
-              id={`bs-html5-${data.indexOf(item)}`}
-              header={<h4>HTML5 & ARIA: {item.data.categories.html5.count}</h4>}
-              caption={`HTML5 and ARIA items for ${item.entry}`}
-              data={item.data.categories.html5}
-            />
-            <DetailedSubPanel
-              id={`bs-contrast-${data.indexOf(item)}`}
-              header={<h4>Contrast: {item.data.categories.contrast.count}</h4>}
-              caption={`Contrast items for ${item.entry}`}
-              data={item.data.categories.contrast}
-            />
-          </Panel>
-        </Panel>
-      </PanelGroup>
-    )}
-  </Panel>
-);
+export default class DetailedPanel extends Component {
+  render() {
+    return (
+      <Panel aria-live="polite" header={<h2>Detailed Reports</h2>}>
+        {map(this.props.data, (item) =>
+          <PanelGroup key={this.props.data.indexOf(item)}>
+            <Panel header={<h3><a href={`//${item.entry}`} target="_blank">{item.entry}</a></h3>}>
+              {/* TODO refactor this, map categories to subpanels */}
+                <Tabs defaultActiveKey={1} animation={false}>
+                  <Tab
+                    tabClassName="tab-error"
+                    eventKey={1}
+                    title={`Errors: ${item.data.categories.error.count}`}
+                  >
+                    <DetailedSubPanel
+                      caption={`Errors for ${item.entry}`}
+                      data={item.data.categories.error}
+                    />
+                  </Tab>
+                  <Tab
+                    tabClassName="tab-alert"
+                    eventKey={2}
+                    title={`Alerts: ${item.data.categories.alert.count}`}
+                  >
+                    <DetailedSubPanel
+                      caption={`Alerts for ${item.entry}`}
+                      data={item.data.categories.alert}
+                    />
+                  </Tab>
+                  <Tab
+                    tabClassName="tab-feature"
+                    eventKey={3}
+                    title={`Features: ${item.data.categories.feature.count}`}
+                  >
+                    <DetailedSubPanel
+                      caption={`Features for ${item.entry}`}
+                      data={item.data.categories.feature}
+                    />
+                  </Tab>
+                  <Tab
+                    tabClassName="tab-structure"
+                    eventKey={4}
+                    title={`Structure: ${item.data.categories.structure.count}`}
+                  >
+                    <DetailedSubPanel
+                      caption={`Structure items for ${item.entry}`}
+                      data={item.data.categories.structure}
+                    />
+                  </Tab>
+                  <Tab
+                    tabClassName="tab-html5"
+                    eventKey={5}
+                    title={`HTML5 and ARIA: ${item.data.categories.html5.count}`}
+                  >
+                    <DetailedSubPanel
+                      caption={`HTML5 and ARIA items for ${item.entry}`}
+                      data={item.data.categories.html5}
+                    />
+                  </Tab>
+                  <Tab
+                    tabClassName="tab-contrast"
+                    eventKey={6}
+                    title={`Contrast: ${item.data.categories.contrast.count}`}
+                  >
+                    <DetailedSubPanel
+                      caption={`Contrast items for ${item.entry}`}
+                      data={item.data.categories.contrast}
+                    />
+                  </Tab>
+                </Tabs>
+              </Panel>
+          </PanelGroup>
+        )}
+      </Panel>
+    );
+  }
+}
 
 DetailedPanel.propTypes = {
   data: PropTypes.array.isRequired,
