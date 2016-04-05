@@ -12,6 +12,7 @@ export default class A11yMain extends Component {
 
     this.state = {
       scanType: 0,
+      keyValue: '',
       isFetching: false,
       reportData: [],
       progressed: 1,
@@ -21,6 +22,8 @@ export default class A11yMain extends Component {
 
     this.preventDefault = this.preventDefault.bind(this);
     this.scanURLs = this.scanURLs.bind(this);
+    this.keyValidationState = this.keyValidationState.bind(this);
+    this.handleKeyChange = this.handleKeyChange.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.export = this.export.bind(this);
@@ -28,6 +31,19 @@ export default class A11yMain extends Component {
 
   preventDefault(event) {
     event.preventDefault();
+  }
+
+  keyValidationState() {
+    const keyLen = this.state.keyValue.length;
+    const style = keyLen === 11 ? 'success' : 'error';
+
+    return style;
+  }
+
+  handleKeyChange() {
+    this.setState({
+      keyValue: document.getElementById('api-key').value,
+    });
   }
 
   openModal() {
@@ -39,8 +55,8 @@ export default class A11yMain extends Component {
   }
 
   export() {
-    const rawData = this.state.scanType === 1 ? this.state.summaryData : this.state.detailedData;
-    const select = document.getElementById('ABC');
+    const rawData = this.state.reportData;
+    const select = document.getElementById('file-type-select');
     const options = select.options;
 
     if (select.selectedIndex === -1) {
@@ -48,7 +64,6 @@ export default class A11yMain extends Component {
     } else {
       map(options, (option) => {
         if (option.selected) {
-          console.log(option.value);
           switch (option.value) {
             case 'json':
               saveAs(Convert.toJSON(rawData), 'report.json');
@@ -67,7 +82,7 @@ export default class A11yMain extends Component {
           }
         }
       });
-      
+
       this.setState({ showModal: false });
     }
   }
@@ -90,6 +105,11 @@ export default class A11yMain extends Component {
       },
     };
     let progressed = 1;
+
+    if (apiKey.length !== 11) {
+      alert('API key must be 11 characters long');
+      return;
+    }
 
     this.setState({ isFetching: true, totalProgress });
 
@@ -114,7 +134,7 @@ export default class A11yMain extends Component {
         });
     }, (err, results) => {
       this.setState({
-        scanType: scanType,
+        scanType,
         isFetching: false,
         reportData: results,
         totalProgress: 0,
@@ -146,8 +166,12 @@ export default class A11yMain extends Component {
                 type="text"
                 label="WAVE API Key"
                 id="api-key"
+                bsStyle={this.keyValidationState()}
                 placeholder="Enter WAVE API key"
-                defaultValue=""
+                hasFeedback
+                help="API key must be 11 characters long"
+                ref="keyInput"
+                onChange={this.handleKeyChange}
               />
             </div>
             <Input
@@ -169,7 +193,13 @@ export default class A11yMain extends Component {
                 </Modal.Header>
                 <Modal.Body>
                   <form>
-                    <Input id="ABC" type="select" label="Select File Format(s)" placeholder="file format" multiple>
+                    <Input
+                      id="file-type-select"
+                      type="select"
+                      label="Select File Format(s)"
+                      placeholder="file format"
+                      multiple
+                    >
                       <option value="json">JSON</option>
                       <option value="csv">CSV</option>
                       <option value="html">HTML</option>
