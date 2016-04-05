@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SummaryTable, DetailedPanel } from '../components';
-import { Panel, Input, ButtonInput, Modal, Button, ProgressBar } from 'react-bootstrap';
+import { Alert, Panel, Input, ButtonInput, Modal, Button, ProgressBar } from 'react-bootstrap';
 import Async from 'async';
 import map from 'lodash.map';
 import { saveAs } from 'browser-filesaver';
@@ -146,6 +146,11 @@ export default class A11yMain extends Component {
   render() {
     return (
       <div className="main">
+        <Alert bsStyle="info">
+          This tool leverages the <a href="http://wave.webaim.org/api/" target="_blank">WAVE API</a> developed by
+          <a href="http://webaim.org/" target="_blank">WebAIM</a>.
+          Please visit their websites to learn more about web accessibility and to purchase API credits.
+        </Alert>
         <Panel header={<h2>Scan Info.</h2>}>
           <form onSubmit={this.preventDefault}>
             <div className="options-key-container">
