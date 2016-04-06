@@ -2,15 +2,15 @@ import React, { PropTypes } from 'react';
 import { Table } from 'react-bootstrap';
 import map from 'lodash.map';
 
-const DetailedSubPanel = ({ caption, data }) => (
-  <Table className="results-table" fill striped bordered condensed hover responsive>
+const DetailedTableSingle = ({ caption, data, thStyle }) => (
+  <Table className="results-table" fill striped bordered condensed hover responsive tabIndex="0">
     <caption className="sr-only">{caption}</caption>
     <thead>
       {data.count > 0 &&
         <tr>
-          <th scope="col">ITEM</th>
-          <th scope="col">COUNT</th>
-          <th scope="col">DESCRIPTION</th>
+          <th className={thStyle} scope="col">ITEM</th>
+          <th className={thStyle} scope="col">COUNT</th>
+          <th className={thStyle} scope="col">DESCRIPTION</th>
         </tr>
       }
     </thead>
@@ -26,12 +26,13 @@ const DetailedSubPanel = ({ caption, data }) => (
   </Table>
 );
 
-DetailedSubPanel.propTypes = {
+DetailedTableSingle.propTypes = {
   caption: PropTypes.string.isRequired,
   data: PropTypes.oneOfType([
     React.PropTypes.array,
     React.PropTypes.object,
   ]).isRequired,
+  thStyle: PropTypes.string.isRequired,
 };
 
-export default DetailedSubPanel;
+export default DetailedTableSingle;
