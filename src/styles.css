@@ -70,7 +70,7 @@ textarea {
   padding-right: 20px;
 }
 .progress-bar {
-  mind-width: 2em;
+  min-width: 2em;
 }
 a, a:focus {
   border-bottom: 1px dotted rgb(64, 64, 64);
@@ -114,15 +114,8 @@ a:hover, a:active {
   background-color: #666666;
   color: #ffffff;
 }
-div[id^="bs-html5"] .panel-heading {
-  background-color: #e8eaf8;
-  border-color: #dde3f5;
-  color: #656789;
-}
-div[id^="bs-contrast"] .panel-heading {
-  background-color: #666666;
-  border-color: #999999;
-  color: #ffffff;
+ul.nav-tabs {
+  margin-bottom: -1px;
 }
 .nav.nav-tabs .tab-error {
   a {
