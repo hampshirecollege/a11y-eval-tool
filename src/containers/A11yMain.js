@@ -12,7 +12,6 @@ export default class A11yMain extends Component {
 
     this.state = {
       scanType: 0,
-      keyValue: '',
       isFetching: false,
       reportData: [],
       progressed: 1,
@@ -22,8 +21,6 @@ export default class A11yMain extends Component {
 
     this.preventDefault = this.preventDefault.bind(this);
     this.scanURLs = this.scanURLs.bind(this);
-    this.keyValidationState = this.keyValidationState.bind(this);
-    this.handleKeyChange = this.handleKeyChange.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.export = this.export.bind(this);
@@ -31,19 +28,6 @@ export default class A11yMain extends Component {
 
   preventDefault(event) {
     event.preventDefault();
-  }
-
-  keyValidationState() {
-    const keyLen = this.state.keyValue.length;
-    const style = keyLen === 11 ? 'success' : 'error';
-
-    return style;
-  }
-
-  handleKeyChange() {
-    this.setState({
-      keyValue: document.getElementById('api-key').value,
-    });
   }
 
   openModal() {
@@ -147,8 +131,8 @@ export default class A11yMain extends Component {
     return (
       <div className="main">
         <Alert bsStyle="info">
-          This tool leverages the <a href="http://wave.webaim.org/api/" target="_blank">WAVE API</a> developed by
-          <a href="http://webaim.org/" target="_blank">WebAIM</a>.
+          This tool leverages the <a href="http://wave.webaim.org/api/" target="_blank">WAVE API</a> developed
+          by <a href="http://webaim.org/" target="_blank">WebAIM</a>.
           Please visit their websites to learn more about web accessibility and to purchase API credits.
         </Alert>
         <Panel header={<h2>Scan Info.</h2>}>
@@ -171,12 +155,7 @@ export default class A11yMain extends Component {
                 type="text"
                 label="WAVE API Key"
                 id="api-key"
-                bsStyle={this.keyValidationState()}
                 placeholder="Enter WAVE API key"
-                hasFeedback
-                help="API key must be 11 characters long"
-                ref="keyInput"
-                onChange={this.handleKeyChange}
               />
             </div>
             <Input
