@@ -10,7 +10,3 @@ export function toCSV() {
 export function toHTML() {
   alert('HTML export coming soon');
 }
-
-export function toExcel() {
-  alert('Excel export coming soon');
-}

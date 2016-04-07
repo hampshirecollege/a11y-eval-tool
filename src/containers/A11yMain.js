@@ -58,9 +58,6 @@ export default class A11yMain extends Component {
             case 'html':
               Convert.toHTML();
               break;
-            case 'excel':
-              Convert.toExcel();
-              break;
             default:
               alert('Error: unknown file type');
           }
@@ -187,7 +184,6 @@ export default class A11yMain extends Component {
                       <option value="json">JSON</option>
                       <option value="csv">CSV</option>
                       <option value="html">HTML</option>
-                      <option value="excel">Excel Spreadsheet</option>
                     </Input>
                   </form>
                 </Modal.Body>
