@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SummaryTable, DetailedPanel } from '../components';
 import { Alert, Panel, Input, ButtonInput, Modal, Button, ProgressBar } from 'react-bootstrap';
-import Async from 'async';
+import asyncMap from 'async.map';
 import map from 'lodash.map';
 import { saveAs } from 'browser-filesaver';
 import * as Convert from '../utils/convertData';
@@ -105,7 +105,7 @@ export default class A11yMain extends Component {
 
     this.setState({ isFetching: true, reportData: [], totalProgress });
 
-    Async.map(urlList, (urlEntry, callback) => {
+    asyncMap(urlList, (urlEntry, callback) => {
       let entry = urlEntry;
 
       entry = entry.trim().replace(/.*?:\/\//g, '');
