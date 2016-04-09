@@ -37,3 +37,5 @@ node_modules
 
 list.txt
 .DS_Store
+wave_items.txt
+generateWaveDocs.js
