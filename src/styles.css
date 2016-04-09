@@ -4,17 +4,17 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-html, body, #root {
-  height: 100%;
-}
-#root {
-  font-family: "Open Sans", sans-serif;
-}
-.page {
-  display: flex;
-  flex-direction: column;
+html, body {
   height: 100%;
   width: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+#root {
+  flex: 1 0 auto;
+  font-family: "Open Sans", sans-serif;
 }
 .header {
   flex-shrink: 0;
@@ -36,7 +36,6 @@ header {
   width: 100%;
 }
 .main {
-  flex: 1 0 auto;
   margin: 0 auto;
   max-width: 1024px;
   padding: 32px 0 12px;
@@ -80,6 +79,16 @@ a, a:focus {
 a:hover, a:active {
   border-bottom: 1px dashed rgb(64, 64, 64);
   text-decoration: none;
+}
+button.btn-link {
+  color: #333;
+  padding: 0;
+
+  &:hover, &:focus {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+  }
 }
 #sum-table {
   margin-bottom: 0;
@@ -245,6 +254,9 @@ ul.nav-tabs {
     color: #666666;
     font-weight: 600;
   }
+}
+.glyphicon-info-sign {
+  color: #31708f;
 }
 .row-err {
   background-color: #f2dede;
