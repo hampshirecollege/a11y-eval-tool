@@ -37,7 +37,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       'Promise': 'exports?global.Promise!es6-promise',
       'fetch': 'exports?global.fetch!whatwg-fetch'
-    })
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   module: {
     loaders: [
@@ -49,6 +50,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('!css!postcss')
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   },

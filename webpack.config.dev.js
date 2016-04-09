@@ -25,7 +25,8 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
       }
-    })
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   module: {
     loaders: [
@@ -37,6 +38,10 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style', 'css', 'postcss']
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   },
