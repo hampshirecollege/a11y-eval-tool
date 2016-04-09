@@ -41,6 +41,7 @@ export default class A11yMain extends Component {
   export() {
     const rawData = this.state.reportData;
     const select = document.getElementById('file-type-select');
+    const fileName = document.getElementById('filename').value;
     const options = select.options;
 
     if (select.selectedIndex === -1) {
@@ -50,14 +51,24 @@ export default class A11yMain extends Component {
         if (option.selected) {
           switch (option.value) {
             case 'json':
-              saveAs(Convert.toJSON(rawData), 'report.json');
+              saveAs(Convert.toJSON(rawData), `${fileName}.json`);
               break;
             case 'csv':
-              Convert.toCSV();
-              break;
+              if (this.state.scanType === 1) {
+                saveAs(Convert.toCSV(rawData), `${fileName}.csv`);
+                break;
+              } else {
+                alert('CSV export for detailed report not yet available.');
+                break;
+              }
             case 'html':
-              Convert.toHTML();
-              break;
+              if (this.state.scanType === 1) {
+                saveAs(Convert.toHTML(rawData), `${fileName}.html`);
+                break;
+              } else {
+                alert('HTML export for detailed report not yet available.');
+                break;
+              }
             default:
               alert('Error: unknown file type');
           }
@@ -92,7 +103,7 @@ export default class A11yMain extends Component {
       return;
     }
 
-    this.setState({ isFetching: true, totalProgress });
+    this.setState({ isFetching: true, reportData: [], totalProgress });
 
     Async.map(urlList, (urlEntry, callback) => {
       let entry = urlEntry;
@@ -185,6 +196,13 @@ export default class A11yMain extends Component {
                       <option value="csv">CSV</option>
                       <option value="html">HTML</option>
                     </Input>
+                    <Input
+                      className="filename"
+                      type="text"
+                      label="Filename"
+                      id="filename"
+                      placeholder="Enter filename (without extension(s))"
+                    />
                   </form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -201,9 +219,7 @@ export default class A11yMain extends Component {
               bsStyle="success"
               label="%(percent)s%"
               max={this.state.totalProgress}
-              aria-valuemax={this.state.totalProgress}
               now={this.state.progressed}
-              aria-valuenow={this.state.progressed}
             />
             : null
           }
