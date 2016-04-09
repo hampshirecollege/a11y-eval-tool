@@ -1,8 +1,8 @@
-# Accessibility Auto Evaluation Tool (WAVE)
+# Accessibility Evaluation Tool
 
 Demo: [http://hampshirecollege.github.io/a11yeval](http://hampshirecollege.github.io/a11yeval/index.html)
 
-This tool leverages the [WAVE a11y tool API](http://wave.webaim.org/api/) developed by [WebAIM](http://webaim.org). Please visit their websites to learn more about accessibility and the WAVE a11y tools.
+This tool leverages the [WAVE a11y API](http://wave.webaim.org/api/) developed by [WebAIM](http://webaim.org). Please visit their websites to learn more about accessibility and the WAVE API and the WAVE Chrome extension.
 
 a11y-eval-tool is a JavaScript client-side web app built with [React](http://facebook.github.io/react/), [Bootstrap](http://getbootstrap.com/), and [React-Bootstrap](https://react-bootstrap.github.io/). It was developed using the following JS build tools:
 - [Babel](https://babeljs.io/) (transpile ES2015 & JSX)
