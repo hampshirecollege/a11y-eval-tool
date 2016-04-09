@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { DetailedTableSingle } from '../components';
 
 const DetailedTableAll = ({ idIndex, entry, data }) => (
-  <div>
+  <div className="table-all">
     <DetailedTableSingle
       idIndex={idIndex}
       caption={`Errors for ${entry}`}
