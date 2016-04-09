@@ -23,7 +23,8 @@ const DetailedTableSingle = ({ idIndex, caption, data, thStyle }) => (
           <td>{item.count}</td>
           <td>
             <OverlayTrigger
-              trigger="focus"
+              trigger="click"
+              rootClose
               placement="right"
               overlay={
                 <Popover title={waveDocs[item.id].data.title}>
@@ -45,7 +46,7 @@ const DetailedTableSingle = ({ idIndex, caption, data, thStyle }) => (
               }
             >
               <Button bsStyle="link">
-                <Glyphicon glyph="info-sign" />{item.description}
+                <Glyphicon glyph="info-sign" /> {item.description}
               </Button>
             </OverlayTrigger>
           </td>
