@@ -1,0 +1,1849 @@
+{
+
+    "alt_missing": {
+        "data": {
+            "name": "alt_missing",
+            "title": "Missing alternative text",
+            "type": "error",
+            "summary": "Image alternative text is not present.",
+            "purpose": "Each image must have an alt attribute. Without alternative text, the content of an image will not be available to screen reader users or when the image is unavailable.",
+            "actions": "Add an alt attribute to the image. The attribute value should accurately and succinctly present the content and function of the image. If the content of the image is conveyed in the context or surroundings of the image, or if the image does not convey content or have a function, it should be given empty/null alternative text (alt=\"\").",
+            "details": "An image does not have an alt attribute.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+    "alt_link_missing": {
+        "data": {
+            "name": "alt_link_missing",
+            "title": "Linked image missing alternative text",
+            "type": "error",
+            "summary": "An image without alternative text results in an empty link.",
+            "purpose": "Images that are the only thing within a link must have descriptive alternative text. If an image is within a link that contains no text and that image does not provide alternative text, a screen reader has no content to present to the user regarding the function of the link.",
+            "actions": "Add appropriate alternative text that presents the content of the image and/or the function of the link.",
+            "details": "An image without alternative text (missing alt attribute or an alt value that is null/empty or only space characters) is within a link that contains no text and no images with alternative text.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+    "alt_spacer_missing": {
+        "data": {
+            "name": "alt_spacer_missing",
+            "title": "Spacer image missing alternative text",
+            "type": "error",
+            "summary": "A layout spacer image (which should have null/empty alternative text) does not have an alt attribute.",
+            "purpose": "Spacer images are used to maintain layout. They do not convey content and should be given null/empty alternative text (alt=\"\") so they are not presented to users and are ignored by screen readers.",
+            "actions": "If the image is a spacer image, give the image null/empty alternative text (alt=\"\"). Alternatively, consider using CSS instead of spacer images to control positioning and layout.",
+            "details": "An image is missing an alt attribute and has a width or height of 3 pixels or less or has a file name starting with \"spacer.*\", \"space.*\", or \"blank.*\". ",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+    "alt_input_missing": {
+        "data": {
+            "name": "alt_input_missing",
+            "title": "Image button missing alternative text",
+            "type": "error",
+            "summary": "Alternative text is not present for a form image button.",
+            "purpose": "Image buttons provide important functionality that must be presented in alternative text. Without alternative text, the function of an image button is not made available to screen reader users or when images are disabled or unavailable.",
+            "actions": "Add appropriate alternative text that presents the function of the image button (e.g., &lt;input src=\"button.gif\" type=\"image\" alt=\"Submit search\"&gt;).",
+            "details": "An image button (&lt;input type=\"image\"&gt;) does not have an alt attribute or has an alt value that is null/empty (alt=\"\") or only space characters.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+
+    "alt_area_missing": {
+        "data": {
+            "name": "alt_area_missing",
+            "title": "Image map area missing alternative text",
+            "type": "error",
+            "summary": "Alternative text is not present for an image map area (hot spot).",
+            "purpose": "Image map areas or clickable hot spots provide important functionality that must be provided in alternative text. Without alternative text, the function of the area is not made available to screen reader users or when images are unavailable.",
+            "actions": "Add a descriptive alt attribute value to each area element. Additionally, ensure that the area elements are listed in the code in a logical, intuitive order (e.g., matching the visual order, alphabetically, etc.).",
+            "details": "An area element does not have the alt attribute or has an alt value that is null/empty (alt=\"\") or only space characters.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "Section 508 (f)",
+                "link": "http://webaim.org/standards/508/checklist#standardf"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+
+    "alt_map_missing": {
+        "data": {
+            "name": "alt_map_missing",
+            "title": "Image map missing alt attribute",
+            "type": "error",
+            "summary": "An image that has hot spots does not have an alt attribute.",
+            "purpose": "Any content or function of an image that uses an image map (hot spots) and does not have an alt attribute will not be available to screen reader users or if the image is unavailable.",
+            "actions": "Add an alt attribute to the image. Ensure the alt attribute value for the image map image is appropriate. The alternative text is typically null/empty (alt=\"\"), unless the image conveys content not conveyed in the hot spot areas (e.g., \"Map of the United States\").",
+            "details": "An image element has the usemap attribute and no alt attribute.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "Section 508 (f)",
+                "link": "http://webaim.org/standards/508/checklist#standardf"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+
+    "server_image_map": {
+        "data": {
+            "name": "server_image_map",
+            "title": "Server-side image map",
+            "type": "error",
+            "summary": "A server-side image map is present.",
+            "purpose": "Server-side images maps cannot be made accessible to keyboard-only users.",
+            "actions": "Replace the server-side image map (an image that, when clicked with the mouse, sends the X and Y coordinates of the click position to a server for analysis) with a client-side map.",
+            "details": "An image has the ismap attribute.",
+            "guidelines": [{
+                "name": "Section 508 (e)",
+                "link": "http://webaim.org/standards/508/checklist#standarde"
+            }, {
+                "name": "Section 508 (f)",
+                "link": "http://webaim.org/standards/508/checklist#standardf"
+            }, {
+                "name": "2.1.1 Keyboard (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.1.1"
+            }]
+        }
+    },
+
+    "longdesc_invalid": {
+        "data": {
+            "name": "longdesc_invalid",
+            "title": "Invalid longdesc",
+            "type": "error",
+            "summary": "The longdesc attribute is not a URL.",
+            "purpose": "The longdesc attribute of an image must be a valid URL of a page that contains a description of the image content. A longdesc value that contains image description text will not provide any accessibility information.",
+            "actions": "Make the longdesc attribute value a valid URL/filename or remove the longdesc attribute. Because of poor browser support for longdesc, it is recommended that it always be used in conjunction with a standard link to the long description page. Because of poor browser support for longdesc, it is recommended that longdesc always be used in conjunction with a standard link to the long description page.",
+            "details": "The longdesc attribute value:\r\n<ul>\r\n<li>is empty</li>\r\n<li>is not a URL or filename</li>\r\n<li>is a URL or filename with an extension of .jpg, .gif, or .png</li>\r\n</ul>",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+
+    "label_missing": {
+        "data": {
+            "name": "label_missing",
+            "title": "Missing form label",
+            "type": "error",
+            "summary": "A form control does not have a corresponding label.",
+            "purpose": "If a form control does not have a properly associated text label, the function or purpose of that form control may not be presented to screen reader users. Form labels also provide visible descriptions and larger clickable targets for form controls.",
+            "actions": "If a text label for a form control is visible, use the &lt;label&gt; element to associate it with its respective form control. If there is no visible label, either provide an associated label, add a descriptive title attribute to the form control, or reference the label(s) using aria-labelledby. Labels are not required for image, submit, reset, button, or hidden form controls.",
+            "details": "An &lt;input&gt; (except types of image, submit, reset, button, or hidden), &lt;select&gt;, or &lt;textarea&gt; does not have a properly associated label text. A properly associated label is:\r\n<ul>\r\n<li>a &lt;label&gt; element with a for attribute value that is equal to the id of a unique form control\r\n<li>a &lt;label&gt; element that surrounds the form control, does not surround any other form controls, and does not reference another element with its for attribute\r\n<li>a non-empty title attribute, or\r\n<li>a non-empty aria-labelledby attribute.\r\n</ul>",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }, {
+                "name": "3.3.2 Labels or Instructions (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.3.2"
+            }]
+        }
+    },
+
+    "label_empty": {
+        "data": {
+            "name": "label_empty",
+            "title": "Empty form label",
+            "type": "error",
+            "summary": "A form label is present, but does not contain any content.",
+            "purpose": "A &lt;label&gt; element that is associated to a form control but does not contain text will not present any information about the form control to the user.",
+            "actions": "Ensure that the form label contains text that describes the function of the associated form control. Labels are not required for image, submit, reset, button, or hidden form controls. If a label is not necessary visually, a descriptive title attribute may be added to the form control.",
+            "details": "A form label is present and associated with an existing form control (using for/id or surrounds the form control), but does not contain any text or images with alternative text.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }, {
+                "name": "3.3.2 Labels or Instructions (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.3.2"
+            }]
+        }
+    },
+
+    "label_multiple": {
+        "data": {
+            "name": "label_multiple",
+            "title": "Multiple form labels",
+            "type": "error",
+            "summary": "A form control has more than one label associated with it.",
+            "purpose": "A form control should have at most one associated label element. If more than one label element is associated to the control, assistive technology may not read the appropriate label.",
+            "actions": "Ensure that at most one label element is associated to the form control. If multiple form labels are necessary, use aria-labelledby.",
+            "details": "Two of more &lt;label&gt;s are associated to a single &lt;input&gt; (except types of image, submit, reset, button, or hidden), &lt;select&gt;, or &lt;textarea&gt;.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }, {
+                "name": "3.3.2 Labels or Instructions (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.3.2"
+            }]
+        }
+    },
+
+    "title_invalid": {
+        "data": {
+            "name": "title_invalid",
+            "title": "Missing or uninformative page title",
+            "type": "error",
+            "summary": "The page title is missing or not descriptive.",
+            "purpose": "A descriptive title helps users understand a page's purpose or content. Without a proper title, many users (especially those using screen readers or other assistive technology) may have difficulty orienting themselves to the page.",
+            "actions": "Add a brief, descriptive page title.",
+            "details": "The page title is missing, empty, contains only whitespace characters, or begins with \"untitled\".",
+            "guidelines": [{
+                "name": "2.4.2 Page Titled (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.2"
+            }]
+        }
+    },
+
+    "language_missing": {
+        "data": {
+            "name": "language_missing",
+            "title": "Document language missing",
+            "type": "error",
+            "summary": "The language of the document is not identified.",
+            "purpose": "Identifying the language of the page allows screen readers to read the content in the appropriate language. It also facilitates automatic translation of content.",
+            "actions": "Identify the document language using the &lt;html lang&gt; attribute (e.g., &lt;html lang=\"en\"&gt;).",
+            "details": "The &lt;html lang&gt; attribute is missing or is empty.",
+            "guidelines": [{
+                "name": "3.1.1 Language of Page (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.1.1"
+            }]
+        }
+    },
+
+    "meta_refresh": {
+        "data": {
+            "name": "meta_refresh",
+            "title": "Page refreshes or redirects",
+            "type": "error",
+            "summary": "The page is set to automatically change location or refresh using a &lt;meta&gt; tag.",
+            "purpose": "Pages that automatically change location or refresh pose significant usability issues, particularly for screen reader and keyboard users.",
+            "actions": "Remove the &lt;meta&gt; refresh and give the user control over time-sensitive content changes.",
+            "details": "A &lt;meta http-equiv=\"refresh\"&gt; tag is present.",
+            "guidelines": [{
+                "name": "Section 508 (p)",
+                "link": "http://webaim.org/standards/508/checklist#standardp"
+            }, {
+                "name": "2.2.1 Timing Adjustable (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.2.1"
+            }, {
+                "name": "2.2.2 Pause, Stop, Hide (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.2.2"
+            }]
+        }
+    },
+
+    "heading_empty": {
+        "data": {
+            "name": "heading_empty",
+            "title": "Empty heading",
+            "type": "error",
+            "summary": "A heading contains no content.",
+            "purpose": "Some users, especially keyboard and screen reader users, often navigate by heading elements. An empty heading will present no information and may introduce confusion.",
+            "actions": "Ensure that all headings contain informative content.",
+            "details": "A heading element is present that contains no text (or only spaces) and no images with alternative text.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+
+    "button_empty": {
+        "data": {
+            "name": "button_empty",
+            "title": "Empty button",
+            "type": "error",
+            "summary": "A button is empty or has no value text.",
+            "purpose": "When navigating to a button, descriptive text must be presented to screen reader users to indicate the function of the button.",
+            "actions": "Place text content within the &lt;button&gt; element or give the &lt;input&gt; element a value attribute.",
+            "details": "A &lt;button&gt; element is present that contains no text content (or alternative text), or an &lt;input type=\"submit\"&gt;, &lt;input type=\"button\"&gt;, or &lt;input type=\"reset\"&gt; has an empty or missing value attribute.",
+            "guidelines": [{
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+
+    "link_empty": {
+        "data": {
+            "name": "link_empty",
+            "title": "Empty link",
+            "type": "error",
+            "summary": "A link contains no text.",
+            "purpose": "If a link contains no text, the function or purpose of the link will not be presented to the user. This can introduce confusion for keyboard and screen reader users.",
+            "actions": "Remove the empty link or provide text within the link that describes the functionality and/or target of that link.",
+            "details": "An anchor element has an href attribute, but contains no text (or only spaces) and no images with alternative text.",
+            "guidelines": [{
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+
+    "link_skip_broken": {
+        "data": {
+            "name": "link_skip_broken",
+            "title": "Broken skip link",
+            "type": "error",
+            "summary": "A skip navigation link exists, but the target for the link does not exist or the link is not keyboard accessible.",
+            "purpose": "A link to jump over navigation or jump to the main content of the page assists keyboard users only if the link is properly functioning and is keyboard accessible.",
+            "actions": "Ensure that the target for the link exists and that the link is not hidden with CSS display:none or visibility:hidden.",
+            "details": "An in-page link contains the words \"skip\" or \"jump\" and is hidden with CSS display:none or visibility:hidden, or the link has an href attribute that does not match the id value of another element within the page or the name attribute value of an anchor element within the page.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+
+    "th_empty": {
+        "data": {
+            "name": "th_empty",
+            "title": "Empty table header",
+            "type": "error",
+            "summary": "A &lt;th&gt; (table header) contains no text.",
+            "purpose": "The &lt;th&gt; element helps associate table cells with the correct row/column headers. A &lt;th&gt; that contains no text may result in cells with missing or incorrect header information.",
+            "actions": "If the table cell is a header, provide text within the cell that describes the column or row. If the cell is not a header or must remain empty (such as the top-left cell in a data table), make the cell a &lt;td&gt; rather than a &lt;th&gt;.",
+            "details": "A &lt;th&gt; element does not contain any text (or contains only spaces) and no images with alternative text.",
+            "guidelines": [{
+                "name": "Section 508 (g)",
+                "link": "http://webaim.org/standards/508/checklist#standardg"
+            }, {
+                "name": "Section 508 (h)",
+                "link": "http://webaim.org/standards/508/checklist#standardh"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+
+    "blink": {
+        "data": {
+            "name": "blink",
+            "title": "Blinking content",
+            "type": "error",
+            "summary": "Blinking content is present.",
+            "purpose": "Blinking content can be distracting and confusing to users, particularly those with certain cognitive disabilities.",
+            "actions": "Remove the blinking effect (&lt;blink&gt; element or text-decoration:blink style). Important text can be styled in other ways.",
+            "details": "A non-empty &lt;blink&gt; element or other text has CSS text-decoration:blink styling.",
+            "guidelines": [{
+                "name": "2.2.2 Pause, Stop, Hide (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.2.2"
+            }]
+        }
+    },
+
+    "marquee": {
+        "data": {
+            "name": "marquee",
+            "title": "Marquee",
+            "type": "error",
+            "summary": "A &lt;marquee&gt; element is present.",
+            "purpose": "A marquee element presents scrolling text that the user cannot stop. Scrolling animated content can be distracting and confusing to users, particularly for those with certain cognitive disabilities.",
+            "actions": "Remove the marquee element. If content must scroll, use an alternative scrolling mechanism that allows the user to pause or stop the animation.",
+            "details": "A &lt;marquee&gt; element is present.",
+            "guidelines": [{
+                "name": "2.2.2 Pause, Stop, Hide (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.2.2"
+            }]
+        }
+    },
+
+    "aria_reference_broken": {
+        "data": {
+            "guidelines": []
+        }
+    },
+
+    "alt_suspicious": {
+        "data": {
+            "name": "alt_suspicious",
+            "title": "Suspicious alternative text",
+            "type": "alert",
+            "summary": "Alternative text is likely insufficient or contains extraneous information.",
+            "purpose": "If the alternative text for an image does not provide the same content or information conveyed by the image, that content will not be available to screen reader users and when images are unavailable.",
+            "actions": "Ensure that the alternative text for the image or image input provides a succinct, yet equivalent alternative to the content and function of the image. Screen readers and browser presentation inform the user that the object is an image, so alternative text of \"image of...\" (and similar) should be avoided. If the image does not convey content or if the content is presented in nearby text (e.g., a caption), null/empty alternative text (alt=\"\") is appropriate.",
+            "details": "The alt text value of an image or image button:\r\n<ul>\r\n<li>begins with \"graphic of\", \"bullet\", or \"image of\",\r\n<li>ends with \"image\" or \"graphic\",\r\n<li>contains only space characters (alt=\" \"),\r\n<li>is an image file name (e.g. alt=\"photo.gif\"), or\r\n<li>is one of the following: \"image\", \"graphic\", \"photo\", \"photograph\", \"drawing\", \"painting\", \"artwork\", \"logo\", \"bullet\", \"button\", \"arrow\", \"more\", \"spacer\", \"blank\", \"chart\", \"table\", \"diagram\", \"graph\", or \"*\".\r\n</ul>",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+
+    "alt_redundant": {
+        "data": {
+            "name": "alt_redundant",
+            "title": "Redundant alternative text",
+            "type": "alert",
+            "summary": "The alternative text for an image is the same as nearby or adjacent text.",
+            "purpose": "Alternative text that is the same as nearby or adjacent text will be presented multiple times to screen readers or when images are unavailable.",
+            "actions": "Change either the alternative text or the adjacent text to eliminate the redundancy. In most cases, you can give the image empty/null alternative text (alt=\"\") because the content of the image is already provided in context through text. Linked images may often be combined with the adjacent text into one link, in which case the image may be given null/empty alternative text (alt=\"\").",
+            "details": "The alternative text is the same as text that is within 15 characters of the image.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+
+    "alt_duplicate": {
+        "data": {
+            "name": "alt_duplicate",
+            "title": "A nearby image has the same alternative text",
+            "type": "alert",
+            "summary": "Two images near each other have the same alternative text.",
+            "purpose": "When two images have the same alternative text, this often causes redundancy or indicates incorrect alternative text.",
+            "actions": "Ensure that the alternative text for each image or image button is appropriate while removing unnecessary redundancy. If the content of the image is already conveyed elsewhere (through text or the alternative text of a nearby image) or if the image does not convey content, the image may generally be given empty/null alternative text (alt=\"\"). Image buttons always convey a specific function, and thus cannot be given null alternative text.",
+            "details": "The same alternative text (case insensitive, but not null/empty) is present for two images or image buttons (&lt;input type='image'&gt;) near each other (no more than 2 other images separate them).",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+
+    "alt_long": {
+        "data": {
+            "name": "alt_long",
+            "title": "Long alternative text",
+            "type": "alert",
+            "summary": "An image has very long alternative text.",
+            "purpose": "Alternative text should be succinct, yet descriptive of the content and function of an image. Lengthy alternative text (more than around 100 characters) often indicates that extraneous content or content that is not available to sighted users is being presented.",
+            "actions": "Ensure the alternative text is succinct, yet descriptive. Ensure that no content is being presented in alternative text that is not available to sighted users viewing the image. When possible, either shorten the alternative text or provide the text alternative via another method (e.g., in text near the image, through a separate description page, etc.).",
+            "details": "The image's alt attribute value is more than 100 characters. Note that the 100 character limit is a rough and somewhat arbitrary length. For images that present complex content or lengthy text, alternative text longer than 100 characters may be appropriate.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+
+    "label_orphaned": {
+        "data": {
+            "name": "label_orphaned",
+            "title": "Orphaned form label",
+            "type": "alert",
+            "summary": "A form label is present, but it is not correctly associated with a form control.",
+            "purpose": "An incorrectly associated label does not provide functionality or information about the form control to the user. It usually indicates a coding or other form labeling issues.",
+            "actions": "Properly associate the label with its corresponding form control. If there is no corresponding form control, remove the label. Labels are not appropriate for image, submit, reset, button, or hidden form controls.",
+            "details": "A &lt;label&gt; element:\r\n<ul>\r\n<li>does not surround a form control and the for attribute is missing/empty\r\n<li>references an element that is not present in the page\r\n<li>references an element that is not an &lt;input&gt;, &lt;select&gt; or &lt;textarea&gt; element\r\n<li>references an &lt;input&gt; element with image, submit, reset, button, or hidden type\r\n</ul>",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }, {
+                "name": "3.3.2 Labels or Instructions (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.3.2"
+            }]
+        }
+    },
+
+    "fieldset_missing": {
+        "data": {
+            "name": "fieldset_missing",
+            "title": "Missing fieldset",
+            "type": "alert",
+            "summary": "A group of check boxes or radio buttons is not enclosed in a fieldset.",
+            "purpose": "A fieldset provides a visual and structural grouping of related form elements. It is typically necessary for groups of check boxes or radio buttons where a higher level description (called a legend) is necessary to understand the function of the check boxes or radio buttons. The description will be identified by a screen reader only if provided in a fieldset legend.",
+            "actions": "Determine whether the grouping of check boxes or radio buttons has or needs text that explains the purpose of the check boxes or radio button grouping. If so, mark up the group within a fieldset and put the group description in a legend element.",
+            "details": "Two or more checkbox or radio input elements within a form have the same name value, but are not enclosed in a fieldset.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }, {
+                "name": "3.3.2 Labels or Instructions (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.3.2"
+            }]
+        }
+    },
+
+    "legend_missing": {
+        "data": {
+            "name": "legend_missing",
+            "title": "Fieldset missing legend",
+            "type": "alert",
+            "summary": "A fieldset does not have a legend.",
+            "purpose": "A fieldset legend presents a description of the form elements within a fieldset and is especially useful to screen reader users. A legend should be provided when a higher level description is necessary for groups of check boxes, radio buttons, or other form controls.",
+            "actions": "If a higher level description is necessary for the user to understand the function or purpose of the controls within the fieldset, provide this description within the &lt;legend&gt;. If this description or grouping is not necessary, the fieldset should probably be removed. Note that the legend is repeated to screen reader users for each form control within the fieldset.",
+            "details": "A fieldset does not have a legend or the legend is empty.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }, {
+                "name": "3.3.2 Labels or Instructions (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.3.2"
+            }]
+        }
+    },
+
+    "label_title": {
+        "data": {
+            "name": "label_title",
+            "title": "Unlabeled form element with title",
+            "type": "alert",
+            "summary": "A form control does not have a label, but has a title.",
+            "purpose": "The title attribute value for unlabeled form controls will be presented to screen reader users. However, a properly associated text label provides better usability and accessibility and should be used unless the purpose of the form control is intuitive without the label.",
+            "actions": "If a visible text label is available for the form control, associate the text label to the form control using the label element. This provides additional functionality for end users because if the label is clicked it will set focus to the form control. If the form control is intuitive without a &lt;label&gt;, the title attribute value may be used. Note that the title attribute value will not generally be read by a screen reader if the control has a label and may not be available to sighted users, particularly keyboard-only users.",
+            "details": "An &lt;input&gt; (except types of image, submit, reset, button, or hidden), &lt;textarea&gt;, or &lt;select&gt; element has a non-empty title attribute value and is missing a label or valid aria-labelledby reference.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }, {
+                "name": "3.3.2 Labels or Instructions (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.3.2"
+            }]
+        }
+    },
+
+    "heading_missing": {
+        "data": {
+            "name": "heading_missing",
+            "title": "No heading structure",
+            "type": "alert",
+            "summary": "The page has no headings.",
+            "purpose": "Headings (&lt;h1&gt;-&lt;h6&gt;) provide important document structure, outlines, and navigation functionality to assistive technology users. ",
+            "actions": "Provide a clear, consistent heading structure, generally one &lt;h1&gt; and sub-headings as appropriate. Except for very simple pages, most web pages should have a heading structure.",
+            "details": "No &lt;h1&gt;-&lt;h6&gt; elements are present in the page.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.2 Page Titled (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.2"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+
+    "h1_missing": {
+        "data": {
+            "name": "h1_missing",
+            "title": "Missing first level heading",
+            "type": "alert",
+            "summary": "A page does not have a first level heading.",
+            "purpose": "Headings facilitate page navigation for users of many assistive technologies. They also provide semantic and visual meaning and structure to the document. A first level heading (&lt;h1&gt;) should be present on nearly all pages. It should contain the most important heading on the page (generally the document title).",
+            "actions": "If the page presents a main heading, place it within an &lt;h1&gt; element. Add other sub-headings as necessary.",
+            "details": "A page does not have an &lt;h1&gt; element.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+
+    "heading_skipped": {
+        "data": {
+            "name": "heading_skipped",
+            "title": "Skipped heading level",
+            "type": "alert",
+            "summary": "A heading level is skipped.",
+            "purpose": "Headings provide document structure and facilitate keyboard navigation by users of assistive technology. These users may be confused or experience difficulty navigating when heading levels are skipped.",
+            "actions": "Restructure the document headings to ensure that heading levels are not skipped.",
+            "details": "A heading level is skipped (e.g., an &lt;h1&gt; is followed by an &lt;h3&gt;, with no intermediate &lt;h2&gt;). Note that an &lt;h1&gt; is not required to be the first heading within the document.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+
+    "heading_possible": {
+        "data": {
+            "name": "heading_possible",
+            "title": "Possible heading",
+            "type": "alert",
+            "summary": "Text appears to be a heading but is not a heading element.",
+            "purpose": "Heading elements (&lt;h1&gt;-&lt;h6&gt;) provide important document structure, outlines, and navigation functionality to assistive technology users. If heading text is not a true heading, this information and functionality will not be available for that text.",
+            "actions": "If the paragraph is a section heading, use a heading element instead (&lt;h1&gt;-&lt;h6&gt;).",
+            "details": "A &lt;p&gt; element contains less than 50 characters and is either:\r\n<ul>\r\n<li>20 pixels or bigger, or\r\n<li>16 pixels or bigger and bold and/or italicized.\r\n</ul>",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+
+    "table_caption_possible": {
+        "data": {
+            "name": "table_caption_possible",
+            "title": "Possible table caption",
+            "type": "alert",
+            "summary": "Text appears to be a table caption, but is not a caption element.",
+            "purpose": "A table caption should be associated with a table using the &lt;caption&gt; element so it will be read by a screen reader with the table content.",
+            "actions": "If the text is a description of the table, associate the text with the table using the &lt;caption&gt; element (&lt;caption&gt; should be the first element within the &lt;table&gt;).",
+            "details": "A data table (has at least one table header) that does not already have a caption has:\r\n- A colspan attribute value of 3 or greater on the first cell of the table.\r\n- A <p> element immediately before the table that contains less than 50 characters or contains less than 100 characters and is bold and/or centered.\r\n",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+
+    "link_internal_broken": {
+        "data": {
+            "name": "link_internal_broken",
+            "title": "Broken same-page link",
+            "type": "alert",
+            "summary": "A link to another location within the page is present but does not have a corresponding target.",
+            "purpose": "A link to jump to another position within the the page assists users in navigating the web page, but only if the link target exists.",
+            "actions": "Ensure that the target for the link exists or remove the the same-page link.",
+            "details": "An in-page link has an href attribute (starting with a #), but does not match either the id value of another element or the name attribute value of an anchor element within the page.",
+            "guidelines": [{
+                "name": "2.1.1 Keyboard (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.1.1"
+            }]
+        }
+    },
+
+    "link_suspicious": {
+        "data": {
+            "name": "link_suspicious",
+            "title": "Suspicious link text",
+            "type": "alert",
+            "summary": "Link text contains extraneous text or may not make sense out of context.",
+            "purpose": "Links, which are often read out of context, should clearly describe the destination or function of the link. Ambiguous text, text that does not make sense out of context, and extraneous text (such as \"click here\") can cause confusion and should be avoided.",
+            "actions": "Where appropriate, reword the link text so that it is more descriptive of its destination when read out of context. Remove any extraneous text (such as \"click here\").",
+            "details": "A link (including alt text of linked images) contains the phrase \"click here\" or \"click\", or the link text is \"click here\", \"here\", \"more\", \"more...\", \"details\", \"more details\", \"link\", \"this page\", \"continue\", \"continue reading\", \"read more\", or \"button\".",
+            "guidelines": [{
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+
+    "link_redundant": {
+        "data": {
+            "name": "link_redundant",
+            "title": "Redundant link",
+            "type": "alert",
+            "summary": "Adjacent links go to the same URL.",
+            "purpose": "When adjacent links go to the same location (such as a linked product image and an adjacent linked product name that go to the same product page) this results in additional navigation and repetition for keyboard and screen reader users.",
+            "actions": "If possible, combine the redundant links into one link and remove any redundant text or alternative text (for example, if a product image and product name are in the same link, the image can usually be given alt=\"\").",
+            "details": "Two adjacent links go to the same URL.",
+            "guidelines": [{
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+
+    "link_word": {
+        "data": {
+            "name": "link_word",
+            "title": "Link to Word document",
+            "type": "alert",
+            "summary": "A link to a Microsoft Word document is present.",
+            "purpose": "Unless authored with accessibility in mind, Microsoft Word documents often have accessibility issues. Additionally, Word documents are typically viewed using a separate application, and can thus cause confusion and navigation difficulties.",
+            "actions": "Ensure that the Word document is natively accessible. Additionally, inform the user that the link will open a Word document. Because Word documents have limitations in accessibility (particularly for complex content) and require a separate program, HTML content should usually be used in place of or in addition to the Word document.",
+            "details": "A link to a .doc or .docx file is present.",
+            "guidelines": [{
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }]
+        }
+    },
+
+    "link_excel": {
+        "data": {
+            "name": "link_excel",
+            "title": "Link to Excel spreadsheet",
+            "type": "alert",
+            "summary": "A link to a Microsoft Excel spreadsheet is present.",
+            "purpose": "Unless authored with accessibility in mind, Microsoft Excel spreadsheets often have accessibility issues. Additionally, Excel documents are typically viewed using a separate application, and can thus cause confusion and navigation difficulties.",
+            "actions": "Ensure the Excel spreadsheet is natively accessible. Additionally, inform the user that the link will open an Excel spreadsheet. Because Excel spreadsheets have limitations in accessibility (particularly for complex content) and require a separate program, HTML content should usually be used in place of or in addition to the Excel spreadsheet.",
+            "details": "A link to a .xls or .xlsx file is present.",
+            "guidelines": [{
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }]
+        }
+    },
+
+    "link_powerpoint": {
+        "data": {
+            "name": "link_powerpoint",
+            "title": "Link to PowerPoint document",
+            "type": "alert",
+            "summary": "A link to a Microsoft PowerPoint presentation is present.",
+            "purpose": "Unless authored with accessibility in mind, PowerPoint documents often have accessibility issues. Additionally, PowerPoint documents are typically viewed using a separate application, and can thus cause confusion and navigation difficulties.",
+            "actions": "Ensure the PowerPoint presentation is natively accessible. Additionally, inform the user that the link will open a PowerPoint document. Because PowerPoint documents have limitations in accessibility (particularly for complex content) and require a separate program, HTML content or an alternative accessible version (e.g., tagged PDF) should usually be used in place of or in addition to the PowerPoint presentation.",
+            "details": "A link to a .ppt, .pptx, .pps, or .ppsx file is present.",
+            "guidelines": [{
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }]
+        }
+    },
+
+    "link_pdf": {
+        "data": {
+            "name": "link_pdf",
+            "title": "Link to PDF document",
+            "type": "alert",
+            "summary": "A link to a PDF document is present.",
+            "purpose": "Unless authored with accessibility in mind, PDF documents often have accessibility issues. Additionally, PDF documents are typically viewed using a separate application or plug-in, and can thus cause confusion and navigation difficulties.",
+            "actions": "Ensure the PDF document is natively accessible. Additionally, inform the user that the link will open a PDF document. Because PDF documents may have limitations in accessibility (particularly for complex content) and require a separate program, HTML content should often be used in place of or in addition to the PDF document.",
+            "details": "A link to a .pdf file is present.",
+            "guidelines": [{
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }]
+        }
+    },
+
+    "link_document": {
+        "data": {
+            "name": "link_document",
+            "title": "Link to document",
+            "type": "alert",
+            "summary": "A link to a non-HTML document is present.",
+            "purpose": "Unless authored with accessibility in mind, documents that are not HTML often have accessibility issues. Additionally, these documents are typically viewed using a separate application, and can thus cause confusion and navigation difficulties.",
+            "actions": "Ensure the document is authored to be accessible, if possible. Additionally, inform the user that the link will open in a separate program. Because these documents have limitations in accessibility (particularly for complex content) and require a separate program, an accessible format should usually be used in place of or in addition to the document.",
+            "details": "A link to a .rtf, .wpd, .ods, .odt, .odp, .sxw, .sxc, .sxd, .sxi, .pages, or .key file is present. Word, PowerPoint, Excel, and PDF are identified with separate icons.",
+            "guidelines": [{
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }]
+        }
+    },
+
+    "text_justified": {
+        "data": {
+            "guidelines": []
+        }
+    },
+
+    "audio_video": {
+        "data": {
+            "name": "audio_video",
+            "title": "Audio/Video",
+            "type": "alert",
+            "summary": "An audio or video file or link is present.",
+            "purpose": "Audio content must be presented in a text format to be fully accessible to users who are deaf and hard of hearing. Video content with audio must have synchronized captions and a transcript. Audio-only content must have a transcript.",
+            "actions": "For video content, ensure that synchronized captioning and a transcript is provided. For audio-only content, ensure that a transcript is provided.",
+            "details": "An embedded QuickTime, Windows Media Player, or RealPlayer movie is present or a link is present to a file with one of the following extensions: 3gp, aif, aiff, asf, asx, avi, flv, m4a, m4p, mov, mp2, mp3, mp4, mpa, mpeg, mpeg2, mpg, mpv, ogg, ogv, qtl, ra, ram, smi, smil, wav, wax, webm, wma, wmp, or wmx.",
+            "guidelines": [{
+                "name": "Section 508 (b)",
+                "link": "http://webaim.org/standards/508/checklist#standardb"
+            }, {
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }, {
+                "name": "1.2.1 Prerecorded Audio-only and Video-only (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.1"
+            }, {
+                "name": "1.2.2 Captions (Prerecorded) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.2"
+            }, {
+                "name": "1.2.3 Audio Description or Media Alternative (Prerecorded) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.3"
+            }, {
+                "name": "1.2.5 Audio Description (Prerecorded) (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.5"
+            }, {
+                "name": "1.4.2 Audio Control (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.4.2"
+            }]
+        }
+    },
+
+    "flash": {
+        "data": {
+            "name": "flash",
+            "title": "Flash",
+            "type": "alert",
+            "summary": "Flash content is present.",
+            "purpose": "Flash content, if not authored to be accessible, will typically introduce significant accessibility issues.",
+            "actions": "If the Flash object does not present content, hide it from screen readers. If content is presented, provide an HTML alternative and/or make the Flash object natively accessible, including providing captions/transcripts when necessary and ensuring that the Flash object is keyboard-accessible.",
+            "details": "An &lt;object&gt; element is present that has a classid attribute value of \"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" or a type attribute value of \"application/x-shockwave-flash\", or an &lt;embed&gt; element is present that has a src attribute value of a .swf file or a type attribute value of \"application/x-shockwave-flash\".",
+            "guidelines": [{
+                "name": "Section 508 (b)",
+                "link": "http://webaim.org/standards/508/checklist#standardb"
+            }, {
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }, {
+                "name": "1.2.1 Prerecorded Audio-only and Video-only (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.1"
+            }, {
+                "name": "1.2.2 Captions (Prerecorded) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.2"
+            }, {
+                "name": "1.2.3 Audio Description or Media Alternative (Prerecorded) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.3"
+            }, {
+                "name": "1.2.5 Audio Description (Prerecorded) (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.5"
+            }, {
+                "name": "2.1.2 No Keyboard Trap (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.1.2"
+            }]
+        }
+    },
+
+    "applet": {
+        "data": {
+            "name": "applet",
+            "title": "Java Applet",
+            "type": "alert",
+            "summary": "A Java applet is present.",
+            "purpose": "Java applets will typically introduce significant accessibility issues.",
+            "actions": "Where possible, replace the Java content with a more accessible format. If Java is necessary, author the applet to support accessibility to the extent possible.",
+            "details": "An &lt;applet&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }]
+        }
+    },
+    "plugin": {
+        "data": {
+            "name": "plugin",
+            "title": "Plugin",
+            "type": "alert",
+            "summary": "An unidentified plugin is present.",
+            "purpose": "Plugins allow the introduction of non-HTML content, media players, etc. Because of limitations in non-HTML content, these often introduce accessibility issues.",
+            "actions": "Provide an HTML alternative or ensure the plugin content is accessible. Provide a link to download any required software.",
+            "details": "An &lt;object&gt; or &lt;embed&gt; element is present that is not identified as Flash, Quicktime, RealPlayer, or Windows Media Player.",
+            "guidelines": [{
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }]
+        }
+    },
+    "noscript": {
+        "data": {
+            "name": "noscript",
+            "title": "Noscript element",
+            "type": "alert",
+            "summary": "A &lt;noscript&gt; element is present.",
+            "purpose": "Content within &lt;noscript&gt; is presented if JavaScript is disabled. Because nearly all users (including users of screen readers and other assistive technologies) have JavaScript enabled, &lt;noscript&gt; cannot be used to provide an accessible version of inaccessible scripted content.",
+            "actions": "Ensure that scripted content is accessible. The &lt;noscript&gt; content will be presented to very few users, but must be accessible if used.",
+            "details": "A &lt;noscript&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (l)",
+                "link": "http://webaim.org/standards/508/checklist#standardl"
+            }]
+        }
+    },
+    "event_handler": {
+        "data": {
+            "name": "event_handler",
+            "title": "Device dependent event handler",
+            "type": "alert",
+            "summary": "An event handler is present that may not be accessible.",
+            "purpose": "The JavaScript events in use do not appear to be accessible to both mouse and keyboard users. To be fully accessible, critical JavaScript interaction should be device independent.",
+            "actions": "Ensure that critical functionality and content is accessible by using a device independent event handler (which responds to both keyboard and mouse) or by using both a mouse dependent and a keyboard dependent event handler.",
+            "details": "One of the following are present:\r\n<ul>\r\n<li>an onmouseover event but not an onfocus event</li>\r\n<li>an onclick event on something other than a link, form control, or element with a tabindex value of 0</li>\r\n<li>ondblclick</li>\r\n</ul>",
+            "guidelines": [{
+                "name": "Section 508 (l)",
+                "link": "http://webaim.org/standards/508/checklist#standardl"
+            }]
+        }
+    },
+    "javascript_jumpmenu": {
+        "data": {
+            "name": "javascript_jumpmenu",
+            "title": "JavaScript jump menu",
+            "type": "alert",
+            "summary": "A JavaScript jump menu may be present.",
+            "purpose": "A JavaScript jump menu is a select element that triggers a new web page with the onchange event handler. When navigating with the keyboard, each change in the select menu triggers a page change in some web browsers, thus making navigation very difficult.",
+            "actions": "If the onchange event handler triggers a new web page, eliminate the JavaScript jump menu and allow the user to change the select menu, then activate an adjacent button to trigger the new page.",
+            "details": "The onchange attribute is present on a &lt;select&gt; element.",
+            "guidelines": [{
+                "name": "Section 508 (l)",
+                "link": "http://webaim.org/standards/508/checklist#standardl"
+            }, {
+                "name": "2.1.1 Keyboard (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.1.1"
+            }, {
+                "name": "3.2.2 On Input (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.2.2"
+            }]
+        }
+    },
+    "accesskey": {
+        "data": {
+            "name": "accesskey",
+            "title": "Accesskey",
+            "type": "alert",
+            "summary": "An accesskey attribute is present.",
+            "purpose": "Accesskey provides a way to define shortcut keys for web page elements. Accesskeys often conflict with user or assistive technology shortcut keys and should be avoided or implemented with care.",
+            "actions": "Remove the accesskey or be aware that the accesskey may conflict with user shortcut keys.",
+            "details": "An element has an accesskey attribute.",
+            "guidelines": [{
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+    "tabindex": {
+        "data": {
+            "name": "tabindex",
+            "title": "Tabindex",
+            "type": "alert",
+            "summary": "A positive tabindex value is present.",
+            "purpose": "Tabindex values of 1 or greater specify an explicit tab/navigation order for page elements. Because it modifies the default tab order, cause confusion, and result in decreased keyboard accessibility, it should be avoided.",
+            "actions": "If the natural tab order is already logical, remove the tabindex. Otherwise, consider restructuring the page so that tabindex is not needed. If tabindex is maintained, ensure that the resulting navigation is logical and complete.",
+            "details": "A tabindex attribute is present and has a positive value.",
+            "guidelines": [{
+                "name": "2.4.3 Focus Order (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.3"
+            }]
+        }
+    },
+    "text_small": {
+        "data": {
+            "name": "text_small",
+            "title": "Very small text",
+            "type": "alert",
+            "summary": "Text is very small.",
+            "purpose": "Text which is very small is difficult to read, particularly for those with low vision.",
+            "actions": "Increase the text to a more readable size.",
+            "details": "Text is present that is sized 10 pixels or smaller.",
+            "guidelines": []
+        }
+    },
+    "underline": {
+        "data": {
+            "name": "underline",
+            "title": "Underlined text",
+            "type": "alert",
+            "summary": "Underlined text is present.",
+            "purpose": "Underlines almost universally indicates linked text. Consider removing the underline from the non-link text. Other styling (e.g., bold or italics) can be used to differentiate the text.",
+            "actions": "Unless there is a distinct need for the underlined text, remove the underline from it. ",
+            "details": "A &lt;u&gt; element is present.",
+            "guidelines": []
+        }
+    },
+    "title_redundant": {
+        "data": {
+            "name": "title_redundant",
+            "title": "Redundant title text",
+            "type": "alert",
+            "summary": "Title attribute text is the same as text or alternative text.",
+            "purpose": "The title attribute value is used to provide <i>advisory</i> information. It typically appears when the users hovers the mouse over an element. The advisory information presented should not be identical to or very similar to the element text or alternative text.",
+            "actions": "In most cases the title attribute can be removed, otherwise modify it to provide advisory, but not redundant information. Note that the title text may or may not be read by a screen reader and is typically inaccessible to sighted keyboard users. ",
+            "details": "A title attribute value is identical to element text or image alternative text.",
+            "guidelines": []
+        }
+    },
+    "alt": {
+        "data": {
+            "name": "alt",
+            "title": "Alternative text",
+            "type": "feature",
+            "summary": "Image alternative text is present.",
+            "purpose": "Alternative text presents the content or function of an image to screen reader users or in other situations where images cannot be seen or are unavailable.",
+            "actions": "Ensure that the alternative text conveys the content and function of the image accurately and succinctly. The alt attribute should be equivalent, accurate, and succinct.",
+            "details": "A non-empty alt attribute is present on an image.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+    "alt_null": {
+        "data": {
+            "name": "alt_null",
+            "title": "Null or empty alternative text",
+            "type": "feature",
+            "summary": "Alternative text is null or empty (alt=\"\").",
+            "purpose": "If an image does not convey content or if the content of the image is conveyed elsewhere (such as in a caption or nearby text), the image should have empty/null alternative text (alt=\"\") to ensure that it is ignored by a screen reader and is hidden when images are disabled or unavailable.",
+            "actions": "Ensure that the image does not convey content or that the content of the image is conveyed in nearby text (e.g., a caption).",
+            "details": "An image has alt=\"\".",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+    "alt_spacer": {
+        "data": {
+            "name": "alt_spacer",
+            "title": "Null or empty alternative text on spacer",
+            "type": "feature",
+            "summary": "Alternative text is null or empty (alt=\"\") on a spacer image.",
+            "purpose": "Spacer images are used to control layout or positioning. Because they do not convey content, they should be given empty/null alternative text (alt=\"\") to ensure that the content is not presented to screen reader users and is hidden when images are disabled or unavailable.",
+            "actions": "Ensure that the image is a spacer image and that it does not convey content. Consider using CSS instead of spacer images for better control of positioning and layout.",
+            "details": "An image with width and/or height of 3 pixels or less or file name of spacer.*, space.*, or blank.* has empty/null alt attribute value (alt=\"\").",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+    "alt_link": {
+        "data": {
+            "name": "alt_link",
+            "title": "Linked image with alternative text",
+            "type": "feature",
+            "summary": "Alternative text is present for an image that is within a link.",
+            "purpose": "Including appropriate alternative text on an image within a link ensures that the function and purpose of the link and the content of the image is available to screen reader users or when images are unavailable.",
+            "actions": "Ensure that the alternative text presents the content of the image and/or the function of the link. If the full content and function of the link is presented in text within the link (an image and a text caption both within the same link, for example), then the image should generally be given empty/null alternative text (alt=\"\") to avoid redundancy.",
+            "details": "An image element has non-empty alternative text, is within a link, and no other text (or images with alternative text) is present within the link.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+    "alt_input": {
+        "data": {
+            "name": "alt_input",
+            "title": "Image button with alternative text",
+            "type": "feature",
+            "summary": "Alternative text is present for an image input element.",
+            "purpose": "Providing the functionality of image buttons in alternative text ensures that the button function is available to all users.",
+            "actions": "Ensure that the alt attribute value presents the content and function of the image input element. If the image presents text, typically this text should be provided in the alt attribute.",
+            "details": "An &lt;input type=\"image\"&gt; element has a non-empty alt attribute value.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+    "alt_map": {
+        "data": {
+            "name": "alt_map",
+            "title": "Image map with alt attribute",
+            "type": "feature",
+            "summary": "An alt attribute is present for an image that has hot spots.",
+            "purpose": "If an image that uses an image map provides content or a function that is not already available through the hot spots (and their respective alternative texts), that information must be in the image's alt attribute in order for it to be available to screen reader users or when images are disabled.",
+            "actions": "Ensure that the alternative text for the image map image is appropriate. The alternative text is typically empty (alt=\"\"), unless the image conveys content not conveyed in the hot spot areas (e.g., \"Map of the United States\").",
+            "details": "An &lt;img&gt; element has both usemap and alt attributes.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "Section 508 (f)",
+                "link": "http://webaim.org/standards/508/checklist#standardf"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+    "alt_area": {
+        "data": {
+            "name": "alt_area",
+            "title": "Image map area with alternative text",
+            "type": "feature",
+            "summary": "Alternative text is present for an image map area (hot spot).",
+            "purpose": "Presenting the functionality of image map areas (hot spots) in the &lt;area&gt; element's alt attribute value ensures that this information is presented to screen reader users or when images are disabled or unavailable.",
+            "actions": "Ensure the alternative text for the area element describes the function of the image map hot spot. Additionally, ensure that the area elements are listed in the code in a logical, intuitive order (e.g., matching the visual order, alphabetically, etc.).",
+            "details": "An image uses an image map containing an area element with a non-empty alt attribute value.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "Section 508 (f)",
+                "link": "http://webaim.org/standards/508/checklist#standardf"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "2.4.4 Link Purpose (In Context) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.4"
+            }]
+        }
+    },
+    "longdesc": {
+        "data": {
+            "name": "longdesc",
+            "title": "Long description",
+            "type": "feature",
+            "summary": "The longdesc attribute is present for an image.",
+            "purpose": "If the content and function of a complex image cannot be adequately presented in succinct alternative text, the longdesc attribute may be used to provide access to a description of the image content.",
+            "actions": "Because of poor browser support for longdesc, it is generally not the best way to provide the description of complex images. The description may be provided:\r\n<ul>\r\n<li>in the alt attribute, if possible. Alt text should be succinct (generally no more than ~100 characters).\r\n<li>in nearby text (e.g., a caption, data table, etc.)\r\n<li>via a link to a separate description page that contains an accurate and equivalent description and (optionally) the longdesc attribute. The longdesc attribute must be the URL of the description page.\r\n</ul>",
+            "details": "An image has a longdesc attribute containing a valid URL.",
+            "guidelines": [{
+                "name": "Section 508 (a)",
+                "link": "http://webaim.org/standards/508/checklist#standarda"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }]
+        }
+    },
+    "label": {
+        "data": {
+            "name": "label",
+            "title": "Form label",
+            "type": "feature",
+            "summary": "A form label is present and associated with a form control.",
+            "purpose": "A properly associated form label is presented to a screen reader user when the form control is accessed. Additionally, a label can be clicked with the mouse to set focus to the form control.",
+            "actions": "Ensure that the label is accurate, descriptive, succinct, and that it is associated with the correct form control element.",
+            "details": "A &lt;label&gt; element is present and properly associated to &lt;input&gt; (except types of image, submit, reset, button, or hidden), &lt;textarea&gt;, or &lt;select&gt; element.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "fieldset": {
+        "data": {
+            "name": "fieldset",
+            "title": "Fieldset",
+            "type": "feature",
+            "summary": "A fieldset is present.",
+            "purpose": "A fieldset provides a visual and structural grouping of related form elements. If present, a fieldset legend presents a description of the grouped form elements to screen reader users. A fieldset and legend are typically necessary for groups of check boxes or radio buttons.",
+            "actions": "Ensure that the fieldset encloses the proper form elements. Most fieldsets should have an accurate, descriptive, and succinct legend. Note that the legend is repeated to screen reader users for each form control within the fieldsets.",
+            "details": "A fieldset element is present.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "link_skip": {
+        "data": {
+            "name": "link_skip",
+            "title": "Skip link",
+            "type": "feature",
+            "summary": "A link is present which allows users to skip over navigation or other content.",
+            "purpose": "A link that provides functionality for the user to jump over navigation or other elements or jump to the main content of the page greatly assists keyboard users in navigating the web page.",
+            "actions": "Ensure that the link is functioning properly and that the link text adequately describes the link functionality. If the skip link is hidden from sighted users, it should be made visible within the page when it has keyboard focus and must be accessible via the keyboard (do not use CSS display:none or visibility:hidden).",
+            "details": "An in-page link:\r\n<ul>\r\n<li>starts with the words \"skip\" or \"jump\"\r\n<li>has an href attribute value and that value matches the id value of another element within the page or the name attribute value of an anchor element within the page.\r\n<li>is NOT hidden with CSS display:none or visibility:hidden (this would result in a inaccessible \"skip\" link).\r\n</ul>",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+    "link_skip_target": {
+        "data": {
+            "name": "link_skip_target",
+            "title": "Skip link target",
+            "type": "feature",
+            "summary": "A target for a \"skip\" link is present.",
+            "purpose": "A \"skip\" target identifies the location within the page where reading and navigation will resume after a \"skip\" link is activated.",
+            "actions": "Ensure that the element is at the appropriate place within the page.",
+            "details": "An id value for any element or a name value for an anchor element matches the href value of a \"skip\" link within the page.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+    "lang": {
+        "data": {
+            "name": "lang",
+            "title": "Element language",
+            "type": "feature",
+            "summary": "The language of a page element or part is identified.",
+            "purpose": "Identifying the language of an element or portion of page that is in a different language than the page itself allows screen readers to read the content appropriately.",
+            "actions": "Ensure the lang attribute is necessary (it is different than the page's language) and the attribute value is a valid language code.",
+            "details": "An element has a non-empty lang attribute value.",
+            "guidelines": [{
+                "name": "3.1.2 Language of Parts (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc3.1.2"
+            }]
+        }
+    },
+    "table_layout": {
+        "data": {
+            "name": "table_layout",
+            "title": "Layout table",
+            "type": "structure",
+            "summary": "A layout table is present.",
+            "purpose": "While tables are primarily intended for the presentation of tabular information or data, they are often used to control page layout and formatting. Layout tables can introduce reading and navigation order issues and must not contain header (&lt;th&gt;) cells.",
+            "actions": "Ensure that the table is indeed a layout table and that it does not contain tabular data. If it is a data table, provide appropriate header (&lt;th&gt;) cells. Verify that the reading and navigation order of table content (based on underlying source code order) is logical.",
+            "details": "A &lt;table&gt; element is present that does not contain any header (&lt;th&gt;) cells.",
+            "guidelines": []
+        }
+    },
+    "table_data": {
+        "data": {
+            "name": "table_data",
+            "title": "Data table",
+            "type": "structure",
+            "summary": "A data table is present.",
+            "purpose": "Data tables present tabular data. Data tables should contain table header cells that identify the content of their respective row and/or columns. Tables with proper table headers provide additional information and navigation for screen reader users.",
+            "actions": "Ensure that the table contains tabular data and that it is not used merely for page layout. Ensure that all column and row headers are &lt;th&gt; elements and ensure the data cells are associated with their proper header cells (typically by assigning scope to the table headers). Where appropriate, associate a descriptive caption (&lt;caption&gt; element) to the table.",
+            "details": "A &lt;table&gt; element is present that contains at least one table header cell (&lt;th&gt;).",
+            "guidelines": [{
+                "name": "Section 508 (g)",
+                "link": "http://webaim.org/standards/508/checklist#standardg"
+            }, {
+                "name": "Section 508 (h)",
+                "link": "http://webaim.org/standards/508/checklist#standardh"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "table_caption": {
+        "data": {
+            "name": "table_caption",
+            "title": "Table caption",
+            "type": "structure",
+            "summary": "A table caption is present.",
+            "purpose": "An associated table caption will be read by a screen reader with the table content.",
+            "actions": "Ensure the table caption is properly associated with the correct table (&lt;caption&gt; should be the first element within the &lt;table&gt;) and that it provides a succinct description of the table.",
+            "details": "A &lt;caption&gt; element is present.",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "th": {
+        "data": {
+            "name": "th",
+            "title": "Table header cell",
+            "type": "structure",
+            "summary": "A table header cell (&lt;th&gt;) is present.",
+            "purpose": "Table headers describe the content of their respective row or column. They can be identified by screen readers when data cells are encountered.",
+            "actions": "Ensure the cell is a table header, otherwise change it to a data cell (&lt;td&gt;). For complex tables (particularly when there are spanned cells), the relationship between header and data cells may need to be defined using scope (e.g., &lt;th scope=\"col\"&gt; or &lt;th scope=\"row\"&gt;) or headers and id attributes.",
+            "details": "A &lt;th&gt; element is present that does not have a scope attribute value of \"row\" or \"col\".",
+            "guidelines": [{
+                "name": "Section 508 (g)",
+                "link": "http://webaim.org/standards/508/checklist#standardg"
+            }, {
+                "name": "Section 508 (h)",
+                "link": "http://webaim.org/standards/508/checklist#standardh"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "th_col": {
+        "data": {
+            "name": "th_col",
+            "title": "Column header cell",
+            "type": "structure",
+            "summary": "A table column header (&lt;th scope=\"col\"&gt;) is present.",
+            "purpose": "Adding a column scope to a table header ensures the cells within that column will be programmatically associated to that header, particularly with complex tables. This facilitates screen reader navigation and orientation within the data table.",
+            "actions": "Ensure that the cell is actually a header cell for tabular data and that it is a column header.",
+            "details": "A table header cell (&lt;th&gt;) is present that has a scope attribute value of \"col\".",
+            "guidelines": [{
+                "name": "Section 508 (g)",
+                "link": "http://webaim.org/standards/508/checklist#standardg"
+            }, {
+                "name": "Section 508 (h)",
+                "link": "http://webaim.org/standards/508/checklist#standardh"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "th_row": {
+        "data": {
+            "name": "th_row",
+            "title": "Row header cell",
+            "type": "structure",
+            "summary": "A table row header (&lt;th scope=\"row\"&gt;) is present.",
+            "purpose": "Adding a row scope to a table header ensures the cells within that row will be programmatically associated to that header, particularly with complex tables. This facilitates screen reader navigation and orientation within the data table.",
+            "actions": "Ensure that the cell is actually a header cell for tabular data and that it is a row header.",
+            "details": "A table header cell (&lt;th&gt;) is present that has a scope attribute value of \"row\".",
+            "guidelines": [{
+                "name": "Section 508 (g)",
+                "link": "http://webaim.org/standards/508/checklist#standardg"
+            }, {
+                "name": "Section 508 (h)",
+                "link": "http://webaim.org/standards/508/checklist#standardh"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "h1": {
+        "data": {
+            "name": "h1",
+            "title": "Heading level 1",
+            "type": "structure",
+            "summary": "A first level heading (&lt;h1&gt; element) is present.",
+            "purpose": "Headings facilitate page navigation for users of assistive technologies. They also provide semantic and visual meaning and structure to the document. First level headings should contain the most important heading(s) on the page (generally the document title).",
+            "actions": "Ensure that the text in question is truly a heading and that it is structured correctly in the page outline.",
+            "details": "An &lt;h1&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "h2": {
+        "data": {
+            "name": "h2",
+            "title": "Heading level 2",
+            "type": "structure",
+            "summary": "A second level heading (&lt;h2&gt; element) is present.",
+            "purpose": "Headings facilitate page navigation for users of assistive technologies. They also provide semantic and visual meaning and structure to the document.",
+            "actions": "Ensure that the text in question is truly a heading and that it is structured correctly in the page outline.",
+            "details": "An &lt;h2&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "h3": {
+        "data": {
+            "name": "h3",
+            "title": "Heading level 3",
+            "type": "structure",
+            "summary": "A third level heading (&lt;h3&gt; element) is present.",
+            "purpose": "Headings facilitate page navigation for users of assistive technologies. They also provide semantic and visual meaning and structure to the document.",
+            "actions": "Ensure that the text in question is truly a heading and that it is structured correctly in the page outline.",
+            "details": "An &lt;h3&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "h4": {
+        "data": {
+            "name": "h4",
+            "title": "Heading level 4",
+            "type": "structure",
+            "summary": "A fourth level heading (&lt;h4&gt; element) is present.",
+            "purpose": "Headings facilitate page navigation for users of assistive technologies. They also provide semantic and visual meaning and structure to the document.",
+            "actions": "Ensure that the text in question is truly a heading and that it is structured correctly in the page outline.",
+            "details": "An &lt;h4&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "h5": {
+        "data": {
+            "name": "h5",
+            "title": "Heading level 5",
+            "type": "structure",
+            "summary": "A fifth level heading (&lt;h5&gt; element) is present.",
+            "purpose": "Headings facilitate page navigation for users of assistive technologies. They also provide semantic and visual meaning and structure to the document.",
+            "actions": "Ensure that the text in question is truly a heading and that it is structured correctly in the page outline.",
+            "details": "An &lt;h5&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "h6": {
+        "data": {
+            "name": "h6",
+            "title": "Heading level 6",
+            "type": "structure",
+            "summary": "A sixth level heading (&lt;h6&gt; element) is present.",
+            "purpose": "Headings facilitate page navigation for users of assistive technologies. They also provide semantic and visual meaning and structure to the document.",
+            "actions": "Ensure that the text in question is truly a heading and that it is structured correctly in the page outline.",
+            "details": "An &lt;h6&gt; element is present.",
+            "guidelines": [{
+                "name": "Section 508 (o)",
+                "link": "http://webaim.org/standards/508/checklist#standardo"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "ol": {
+        "data": {
+            "name": "ol",
+            "title": "Ordered list",
+            "type": "structure",
+            "summary": "An ordered (numbered) list (&lt;ol&gt; element) is present.",
+            "purpose": "Ordered lists present a group of related sequential items. Users of assistive technologies can navigate by and within lists.",
+            "actions": "Ensure that an ordered (numbered) list is appropriate for the context. If list items are parallel or the order of the items is not important, an unordered list (&lt;ul&gt;) is likely more appropriate.",
+            "details": "An &lt;ol&gt; element is present.",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "ul": {
+        "data": {
+            "name": "ul",
+            "title": "Unordered list",
+            "type": "structure",
+            "summary": "An unordered (bulleted) list (&lt;ul&gt; element) is present.",
+            "purpose": "Ordered lists present a group of related, parallel items. Users of many assistive technologies can navigate by and within lists.",
+            "actions": "Ensure that an unordered (bulleted) list is appropriate for the context. If list items are sequential or numbered, an ordered list (&lt;ol&gt;) is likely more appropriate.",
+            "details": "A &lt;ul&gt; element is present.",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "dl": {
+        "data": {
+            "name": "dl",
+            "title": "Definition/description list",
+            "type": "structure",
+            "summary": "A definition/description list (&lt;dl&gt; element) is present.",
+            "purpose": "Definition lists (called description lists in HTML5) present the descriptions for terms or name/value pairs. Users of many assistive technologies can navigate by and within lists.",
+            "actions": "Ensure that the list is appropriate for the context (it is used for definitions or name/value pairs) and that definition terms (&lt;dt&gt;) and descriptions (&lt;dd&gt;) are provided.",
+            "details": "A &lt;dl&gt; element is present. ",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }]
+        }
+    },
+    "iframe": {
+        "data": {
+            "name": "iframe",
+            "title": "Inline Frame",
+            "type": "structure",
+            "summary": "An inline frame (&lt;iframe&gt;) is present. \t",
+            "purpose": "The content of an inline frame is read as if it were part of the page that contains it. The content of the iframe must be accessible. A title attribute value for the iframe will generally be read by a screen reader when the iframe is encountered.",
+            "actions": "Ensure that the content within the iframe is accessible. Optionally, a title attribute value can be added to provide a brief, advisory description of the iframe.",
+            "details": "An &lt;iframe&gt; element is present.",
+            "guidelines": []
+        }
+    },
+    "html5_header": {
+        "data": {
+            "name": "html5_header",
+            "title": "HTML5 header",
+            "type": "html5",
+            "summary": "A &lt;header&gt; element is present.",
+            "purpose": "The &lt;header&gt; element identifies page introduction or navigation. It typically surrounds the site or page name, logo, top navigation, or other header content. HTML5 headers facilitate page semantics and navigation.",
+            "actions": "Ensure the element surrounds and defines page header content. The header element may be used with ARIA role=\"banner\" to ensure better accessibility support.",
+            "details": "A &lt;header&gt; element is present.",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+    "html5_nav": {
+        "data": {
+            "name": "html5_nav",
+            "title": "HTML5 navigation",
+            "type": "html5",
+            "summary": "A &lt;nav&gt; element is present.",
+            "purpose": "The &lt;nav&gt; element identifies a section of navigation links and can facilitate page semantics and navigation.",
+            "actions": "Ensure the element defines page navigation. The &lt;nav&gt; element may be used with ARIA role=\"navigation\" to ensure better accessibility support.",
+            "details": "A &lt;nav&gt; element is present.",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+    "html5_main": {
+        "data": {
+            "name": "html5_main",
+            "title": "HTML5 main element",
+            "type": "html5",
+            "summary": "A &lt;main&gt; element is present.",
+            "purpose": "The &lt;main&gt; element identifies the main content for the page. The main element facilitate page semantics and navigation.",
+            "actions": "Ensure the element surrounds and defines page main content. The &lt;main&gt; element may be used with ARIA role=\"main\" to ensure better accessibility support.",
+            "details": "A &lt;main&gt; element is present.",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+    "html5_footer": {
+        "data": {
+            "name": "html5_footer",
+            "title": "HTML5 footer",
+            "type": "html5",
+            "summary": "A &lt;footer&gt; element is present.",
+            "purpose": "The &lt;footer&gt; element identifies a footer for the page or a page section. It typically identifies authorship, related links, copyright date, or other footer content. HTML5 footers facilitate page semantics and navigation.",
+            "actions": "Ensure the element surrounds and defines page or page section footer content. The &lt;footer&gt; element may be used with ARIA role=\"contentinfo\" (only one allowed per page) to ensure better accessibility support.",
+            "details": "A &lt;footer&gt; element is present.",
+            "guidelines": [{
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.1 Bypass Blocks (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.1"
+            }]
+        }
+    },
+    "html5_aside": {
+        "data": {
+            "guidelines": []
+        }
+    },
+    "html5_video_audio": {
+        "data": {
+            "name": "html5_video_audio",
+            "title": "HTML5 video or audio",
+            "type": "html5",
+            "summary": "A &lt;video&gt; or &lt;audio&gt; element is present.",
+            "purpose": "lt;video&gt; defines video, such as a movie clip or other video streams. lt;audio&gt; defines sound, such as music or other audio streams. Audio content must be presented in a text format to be fully accessible to users who are deaf and hard of hearing. Video content with audio must have synchronized captions and a transcript. Audio-only content must have a transcript.",
+            "actions": "For video content with audio, ensure that synchronized captioning and a transcript is provided. For audio-only content, ensure that a transcript is provided.",
+            "details": "A &lt;video&gt; or &lt;audio&gt; element is present. Note that WAVE does not analyze fall-back content within the &lt;video&gt; or &lt;audio&gt; element. This content should be accessible because it will be presented to the user if the video or audio content is not supported.",
+            "guidelines": [{
+                "name": "Section 508 (b)",
+                "link": "http://webaim.org/standards/508/checklist#standardb"
+            }, {
+                "name": "Section 508 (m)",
+                "link": "http://webaim.org/standards/508/checklist#standardm"
+            }, {
+                "name": "1.2.1 Prerecorded Audio-only and Video-only (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.1"
+            }, {
+                "name": "1.2.2 Captions (Prerecorded) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.2"
+            }, {
+                "name": "1.2.3 Audio Description or Media Alternative (Prerecorded) (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.3"
+            }, {
+                "name": "1.2.5 Audio Description (Prerecorded) (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.2.5"
+            }, {
+                "name": "1.4.2 Audio Control (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.4.2"
+            }]
+        }
+    },
+    "aria": {
+        "data": {
+            "name": "aria",
+            "title": "ARIA",
+            "type": "html5",
+            "summary": "An ARIA role, state, or property is present.",
+            "purpose": "ARIA provides enhanced semantics and accessibility for web content.",
+            "actions": "Ensure the ARIA role, state, or property is used correctly. Use standard HTML accessibility features when possible. Be aware that support for ARIA is limited in older browsers and assistive technologies.",
+            "details": "An ARIA role, state, or property is present, excluding landmark roles, aria-labelledby, or aria-describedby which have distinct icons.",
+            "guidelines": []
+        }
+    },
+    "aria_search": {
+        "data": {
+            "guidelines": []
+        }
+    },
+    "aria_label": {
+        "data": {
+            "name": "aria_label",
+            "title": "ARIA label or description",
+            "type": "html5",
+            "summary": "An aria-label, aria-labelledby, or aria-describedby attribute is present.",
+            "purpose": "ARIA labels and descriptions allow elements to be associated with other content. These labels and descriptions will generally be read by screen readers. They may be used when HTML associations (label, alternative text, etc.) are not sufficient.",
+            "actions": "Ensure the aria-labelledby or aria-describedby attribute references an element that provides a correct label or description. When possible, use standard HTML &lt;label&gt; or other markup to make the association.",
+            "details": "An aria-label, aria-labelledby, or aria-describedby attribute is present.",
+            "guidelines": [{
+                "name": "Section 508 (n)",
+                "link": "http://webaim.org/standards/508/checklist#standardn"
+            }, {
+                "name": "1.1.1 Non-text Content (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.1.1"
+            }, {
+                "name": "1.3.1 Info and Relationships (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.3.1"
+            }, {
+                "name": "2.4.6 Headings and Labels (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.4.6"
+            }]
+        }
+    },
+    "aria_tabindex": {
+        "data": {
+            "name": "aria_tabindex",
+            "title": "ARIA tabindex",
+            "type": "html5",
+            "summary": "A tabindex value of 0 or less is present.",
+            "purpose": "Tabindex can facilitate keyboard navigation for interactive elements. A tabindex attribute value of 0 places an item into the keyboard navigation order (i.e., you can navigate to it using the Tab key). A value of less than 0 (typically -1) removes an element from the keyboard flow (you cannot Tab to it), but allows it to receive programmatic focus (e.g., via scripting). ",
+            "actions": "Ensure that tabindex is being used correctly by navigating and interacting with the elements using only the keyboard. Positive tabindex values specify a distinct tab order and should typically be avoided.",
+            "details": "A tabindex attribute is present and has a value of 0 or less.",
+            "guidelines": [{
+                "name": "2.1.1 Keyboard (Level A)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc2.1.1"
+            }]
+        }
+    },
+    "contrast": {
+        "data": {
+            "name": "contrast",
+            "title": "Very Low Contrast",
+            "type": "contrast",
+            "summary": "Very low contrast between foreground and background colors.",
+            "purpose": "Adequate contrast is necessary for all users, especially users with low vision.",
+            "actions": "Increase the contrast between the foreground (text) color and the background color. Large text (larger than 18 point or 14 point bold) does not require as much contrast as smaller text.",
+            "details": "Text is present that has a contrast ratio less than 4.5:1, or large text (larger than 18 point or 14 point bold) has a contrast ratio less than 3:1. Elements with background images must have a background color defined that provides adequate contrast when images are disabled or unavailable.",
+            "guidelines": [{
+                "name": "1.4.3 Contrast (Minimum) (Level AA)",
+                "link": "http://webaim.org/standards/wcag/checklist#sc1.4.3"
+            }]
+        }
+    }
+
+}
