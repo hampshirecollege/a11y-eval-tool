@@ -33,6 +33,6 @@ Required: [Node.js](https://nodejs.org/en/)
 3. `npm install`
 4. hack away!
 
-`npm run start` fires up the [Express](http://expressjs.com/) dev server which allows for rapid development with hot module replacement.
+`npm run start` fires up the [Express](http://expressjs.com/) dev server which allows for rapid development with hot module replacement. The app is served at http://localhost:3000/
 
 When ready to deploy run `npm run lint` to lint and `npm run build` to clean the dist directory, rebundle the js, and move the html and css files to the fresh dist directory.
