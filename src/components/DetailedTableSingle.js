@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button, OverlayTrigger, Popover, Glyphicon } from 'react-bootstrap';
 import map from 'lodash.map';
+import he from 'he';
+import waveDocs from '../wave_docs/wave_docs.json';
 
-const DetailedTableSingle = ({ caption, data, thStyle }) => (
+const DetailedTableSingle = ({ idIndex, caption, data, thStyle }) => (
   <Table className="results-table" fill striped bordered condensed hover responsive tabIndex="0">
     <caption className="sr-only">{caption}</caption>
     <thead>
@@ -19,7 +21,34 @@ const DetailedTableSingle = ({ caption, data, thStyle }) => (
         <tr key={item.id}>
           <th scope="row">{item.id}</th>
           <td>{item.count}</td>
-          <td>{item.description}</td>
+          <td>
+            <OverlayTrigger
+              trigger="focus"
+              placement="right"
+              overlay={
+                <Popover title={waveDocs[item.id].data.title}>
+                  <p><strong>What It Means</strong></p>
+                  <p>{he.decode(`${waveDocs[item.id].data.summary}`)}</p>
+                  <p><strong>Why It Matters</strong></p>
+                  <p>{he.decode(`${waveDocs[item.id].data.purpose}`)}</p>
+                  <p><strong>How to Fix It</strong></p>
+                  <p>{he.decode(`${waveDocs[item.id].data.actions}`)}</p>
+                  <p><strong>The Algorithm... in English</strong></p>
+                  <p>{he.decode(`${waveDocs[item.id].data.details}`)}</p>
+                  <p><strong>Standards and Guidelines</strong></p>
+                  <ul>
+                    {map(waveDocs[item.id].data.guidelines, (guideline) =>
+                      <li key={`${item.id}`}><a href={guideline.link} target="_blank">{guideline.name}</a></li>
+                    )}
+                  </ul>
+                </Popover>
+              }
+            >
+              <Button bsStyle="link">
+                <Glyphicon glyph="info-sign" />{item.description}
+              </Button>
+            </OverlayTrigger>
+          </td>
         </tr>
       )}
     </tbody>
@@ -27,6 +56,10 @@ const DetailedTableSingle = ({ caption, data, thStyle }) => (
 );
 
 DetailedTableSingle.propTypes = {
+  idIndex: PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]).isRequired,
   caption: PropTypes.string.isRequired,
   data: PropTypes.oneOfType([
     React.PropTypes.array,
