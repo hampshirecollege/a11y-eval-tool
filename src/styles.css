@@ -99,6 +99,9 @@ button.btn-link {
 .results-table tr td:last-child {
   width: 50%;
 }
+.table-all {
+  margin-top: 16px;
+}
 .th-errors {
   background-color: #f2dede;
   color: #a94442;
