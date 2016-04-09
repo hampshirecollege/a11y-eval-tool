@@ -56,7 +56,6 @@
     "react-dom": "^15.0.1",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.0",
-    "tablesort": "^4.0.0",
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.7.1",
