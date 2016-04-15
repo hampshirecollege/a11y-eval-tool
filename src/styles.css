@@ -126,8 +126,8 @@ button.btn-link {
   background-color: #666666;
   color: #ffffff;
 }
-ul.nav-tabs {
-  margin-bottom: -1px;
+.tab-content table {
+  border-top: 0px;
 }
 .nav.nav-tabs .tab-error {
   a {
