@@ -4,13 +4,13 @@ import map from 'lodash.map';
 import he from 'he';
 import waveDocs from '../wave_docs/wave_docs.json';
 
-const DetailedTableSingle = ({ idIndex, caption, data, thStyle }) => (
+const DetailedTableSingle = ({ itemType, idIndex, caption, data, thStyle }) => (
   <Table className="results-table" fill striped bordered condensed hover responsive tabIndex="0">
     <caption className="sr-only">{caption}</caption>
     <thead>
       {data.count > 0 &&
         <tr>
-          <th className={thStyle} scope="col">ITEM</th>
+          <th className={thStyle} scope="col">{itemType !== undefined ? itemType : 'ITEM'}</th>
           <th className={thStyle} scope="col">COUNT</th>
           <th className={thStyle} scope="col">DESCRIPTION</th>
         </tr>
@@ -45,9 +45,9 @@ const DetailedTableSingle = ({ idIndex, caption, data, thStyle }) => (
                 </Popover>
               }
             >
-              <Button bsStyle="link">
+              <a className="guideline-link">
                 <Glyphicon glyph="info-sign" /> {item.description}
-              </Button>
+              </a>
             </OverlayTrigger>
           </td>
         </tr>
@@ -57,6 +57,7 @@ const DetailedTableSingle = ({ idIndex, caption, data, thStyle }) => (
 );
 
 DetailedTableSingle.propTypes = {
+  itemType: PropTypes.string,
   idIndex: PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number,
