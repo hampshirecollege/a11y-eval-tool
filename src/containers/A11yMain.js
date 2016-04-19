@@ -40,6 +40,7 @@ export default class A11yMain extends Component {
 
   export() {
     const rawData = this.state.reportData;
+    const scanType = this.state.scanType;
     const select = document.getElementById('file-type-select');
     const fileName = document.getElementById('filename').value;
     const options = select.options;
@@ -54,21 +55,11 @@ export default class A11yMain extends Component {
               saveAs(Convert.toJSON(rawData), `${fileName}.json`);
               break;
             case 'csv':
-              if (this.state.scanType === 1) {
-                saveAs(Convert.toCSV(rawData), `${fileName}.csv`);
-                break;
-              } else {
-                alert('CSV export for detailed report not yet available.');
-                break;
-              }
+              saveAs(Convert.toCSV(rawData, scanType), `${fileName}.csv`);
+              break;
             case 'html':
-              if (this.state.scanType === 1) {
-                saveAs(Convert.toHTML(rawData), `${fileName}.html`);
-                break;
-              } else {
-                alert('HTML export for detailed report not yet available.');
-                break;
-              }
+              saveAs(Convert.toHTML(rawData, scanType), `${fileName}.html`);
+              break;
             default:
               alert('Error: unknown file type');
           }
