@@ -4,10 +4,14 @@ import { Panel, Tabs, Tab } from 'react-bootstrap';
 import map from 'lodash.map';
 
 export default class DetailedPanel extends Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.data !== nextProps.data;
+  }
+
   render() {
     return (
       <Panel aria-live="polite" header={<h2>Detailed Reports</h2>}>
-        {map(this.props.data, (item, index) =>
+        {map(this.props.data, (item) =>
           <Panel
             key={this.props.data.indexOf(item)}
             header={<h3><a href={`//${item.entry}`} target="_blank">{item.entry}</a></h3>}
@@ -20,7 +24,6 @@ export default class DetailedPanel extends Component {
                   title={`Errors: ${item.data.categories.error.count}`}
                 >
                   <DetailedTableSingle
-                    idIndex={index}
                     caption={`Errors for ${item.entry}`}
                     data={item.data.categories.error}
                     thStyle="th-errors"
@@ -32,7 +35,6 @@ export default class DetailedPanel extends Component {
                   title={`Alerts: ${item.data.categories.alert.count}`}
                 >
                   <DetailedTableSingle
-                    idIndex={index}
                     caption={`Alerts for ${item.entry}`}
                     data={item.data.categories.alert}
                     thStyle="th-alerts"
@@ -44,7 +46,6 @@ export default class DetailedPanel extends Component {
                   title={`Features: ${item.data.categories.feature.count}`}
                 >
                   <DetailedTableSingle
-                    idIndex={index}
                     caption={`Features for ${item.entry}`}
                     data={item.data.categories.feature}
                     thStyle="th-features"
@@ -56,7 +57,6 @@ export default class DetailedPanel extends Component {
                   title={`Structure: ${item.data.categories.structure.count}`}
                 >
                   <DetailedTableSingle
-                    idIndex={index}
                     caption={`Structure items for ${item.entry}`}
                     data={item.data.categories.structure}
                     thStyle="th-structure"
@@ -68,7 +68,6 @@ export default class DetailedPanel extends Component {
                   title={`HTML5 and ARIA: ${item.data.categories.html5.count}`}
                 >
                   <DetailedTableSingle
-                    idIndex={index}
                     caption={`HTML5 and ARIA items for ${item.entry}`}
                     data={item.data.categories.html5}
                     thStyle="th-html5"
@@ -80,7 +79,6 @@ export default class DetailedPanel extends Component {
                   title={`Contrast: ${item.data.categories.contrast.count}`}
                 >
                   <DetailedTableSingle
-                    idIndex={index}
                     caption={`Contrast items for ${item.entry}`}
                     data={item.data.categories.contrast}
                     thStyle="th-contrast"
@@ -92,7 +90,6 @@ export default class DetailedPanel extends Component {
                   title="View All"
                 >
                   <DetailedTableAll
-                    idIndex={`all-${index}`}
                     entry={item.entry}
                     data={item.data}
                   />

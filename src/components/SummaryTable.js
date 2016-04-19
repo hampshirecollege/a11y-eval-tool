@@ -3,6 +3,10 @@ import { Panel, Table } from 'react-bootstrap';
 import map from 'lodash.map';
 
 export default class SummaryTable extends Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.data !== nextProps.data;
+  }
+
   render() {
     return (
       <Panel aria-live="polite" header={<h2>Summary Report</h2>}>
@@ -20,8 +24,8 @@ export default class SummaryTable extends Component {
             </tr>
           </thead>
           <tbody>
-            {map(this.props.data, (item) =>
-              <tr key={this.props.data.indexOf(item)}>
+            {map(this.props.data, (item, index) =>
+              <tr key={index}>
                 <th scope="row">
                   <a href={`//${item.entry}`} target="_blank">
                     {item.error &&
