@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Table, Button, OverlayTrigger, Popover, Glyphicon } from 'react-bootstrap';
+import { Table, OverlayTrigger, Popover, Glyphicon } from 'react-bootstrap';
 import map from 'lodash.map';
 import he from 'he';
 import waveDocs from '../wave_docs/wave_docs.json';
 
-const DetailedTableSingle = ({ itemType, idIndex, caption, data, thStyle }) => (
+const DetailedTableSingle = ({ itemType, caption, data, thStyle }) => (
   <Table className="results-table" fill striped bordered condensed hover responsive tabIndex="0">
     <caption className="sr-only">{caption}</caption>
     <thead>
@@ -38,8 +38,8 @@ const DetailedTableSingle = ({ itemType, idIndex, caption, data, thStyle }) => (
                   <p>{he.decode(`${waveDocs[item.id].data.details}`)}</p>
                   <p><strong>Standards and Guidelines</strong></p>
                   <ul>
-                    {map(waveDocs[item.id].data.guidelines, (guideline) =>
-                      <li key={`${item.id}`}><a href={guideline.link} target="_blank">{guideline.name}</a></li>
+                    {map(waveDocs[item.id].data.guidelines, (guideline, index) =>
+                      <li key={`${item.id}-${index}`}><a href={guideline.link} target="_blank">{guideline.name}</a></li>
                     )}
                   </ul>
                 </Popover>
@@ -58,10 +58,6 @@ const DetailedTableSingle = ({ itemType, idIndex, caption, data, thStyle }) => (
 
 DetailedTableSingle.propTypes = {
   itemType: PropTypes.string,
-  idIndex: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
-  ]).isRequired,
   caption: PropTypes.string.isRequired,
   data: PropTypes.oneOfType([
     React.PropTypes.array,
