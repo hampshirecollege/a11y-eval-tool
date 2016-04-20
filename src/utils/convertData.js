@@ -53,7 +53,7 @@ function toHTMLSummary(data) {
     <meta http-equiv=Content-Type content="text/html">
     <meta charset="utf-8">
     <style>
-      table {margin:64px}
+      table {margin:64px auto;width: 90%}
       table, th, td {border: 1px solid #ddd;border-collapse: collapse}
       tr:nth-child(even) {background:#f9f9f9}
       tr:nth-child(odd) {background: white}
@@ -110,8 +110,8 @@ function toHTMLDetailed(data) {
     <meta http-equiv=Content-Type content="text/html">
     <meta charset="utf-8">
     <style>
-      table {margin:64px}
-      table, th, td {border: 1px solid #ddd;border-collapse: collapse}
+      table {margin:64px auto;width: 90%}
+      table, th, td {border: 1px solid #666;border-collapse: collapse}
       .errors {background-color:#f2dede;color:#a94442;}
       .alerts {background-color:#fcf8e3;color:#8a6d3b;}
       .features {background-color:#dff0d8;color:#3c763d;}
@@ -138,7 +138,7 @@ function toHTMLDetailed(data) {
 
       map(site.data.categories.error.items, (item) => {
         htmlData += `<tr class="errors">
-          <td scope="row"><a href="${site.entry}" target="_blank">${site.entry}</a></td>
+          <td scope="row"><a href="http://${site.entry}" target="_blank">${site.entry}</a></td>
           <td>Error</td>
           <td>${item.id}</td>
           <td>${item.count}</td>
@@ -146,7 +146,7 @@ function toHTMLDetailed(data) {
       });
       map(site.data.categories.alert.items, (item) => {
         htmlData += `<tr class="alerts">
-          <td scope="row"><a href="${site.entry}" target="_blank">${site.entry}</a></td>
+          <td scope="row"><a href="http://${site.entry}" target="_blank">${site.entry}</a></td>
           <td>Alert</td>
           <td>${item.id}</td>
           <td>${item.count}</td>
@@ -154,7 +154,7 @@ function toHTMLDetailed(data) {
       });
       map(site.data.categories.feature.items, (item) => {
         htmlData += `<tr class="features">
-          <td scope="row"><a href="${site.entry}" target="_blank">${site.entry}</a></td>
+          <td scope="row"><a href="http://${site.entry}" target="_blank">${site.entry}</a></td>
           <td>Feature</td>
           <td>${item.id}</td>
           <td>${item.count}</td>
@@ -162,7 +162,7 @@ function toHTMLDetailed(data) {
       });
       map(site.data.categories.structure.items, (item) => {
         htmlData += `<tr class="structure">
-          <td scope="row"><a href="${site.entry}" target="_blank">${site.entry}</a></td>
+          <td scope="row"><a href="http://${site.entry}" target="_blank">${site.entry}</a></td>
           <td>Structure</td>
           <td>${item.id}</td>
           <td>${item.count}</td>
@@ -170,7 +170,7 @@ function toHTMLDetailed(data) {
       });
       map(site.data.categories.html5.items, (item) => {
         htmlData += `<tr class="html5">
-          <td scope="row"><a href="${site.entry}" target="_blank">${site.entry}</a></td>
+          <td scope="row"><a href="http://${site.entry}" target="_blank">${site.entry}</a></td>
           <td>HTML5 and AIRA</td>
           <td>${item.id}</td>
           <td>${item.count}</td>
@@ -178,7 +178,7 @@ function toHTMLDetailed(data) {
       });
       map(site.data.categories.contrast.items, (item) => {
         htmlData += `<tr class="contrast">
-          <td scope="row"><a href="${site.entry}" target="_blank">${site.entry}</a></td>
+          <td scope="row"><a href="http://${site.entry}" target="_blank">${site.entry}</a></td>
           <td>Contrast</td>
           <td>${item.id}</td>
           <td>${item.count}</td>
