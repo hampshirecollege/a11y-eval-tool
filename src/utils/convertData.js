@@ -1,6 +1,14 @@
+/**
+ * External dependencies
+ */
 import map from 'lodash.map';
 import moment from 'moment';
 
+/**
+ * Converts summary report data to CSV format
+ * @param  {array} data - summary report data
+ * @return {blob} blob of converted CSV data
+ */
 function toCSVSummary(data) {
   let csvData = `"WAVE accessibility summary report: ${moment().format('MMMM Do YYYY, h:mma')}"\nSITE URL,ERRORS,ALERTS,FEATURES,STRUCTURE,HTML5 AND ARIA,CONTRAST\n`;
 
@@ -15,6 +23,11 @@ function toCSVSummary(data) {
   return blob;
 }
 
+/**
+ * Converts detailed report data to CSV format
+ * @param  {array} data - detailed report data
+ * @return {blob} blob of converted CSV data
+ */
 function toCSVDetailed(data) {
   let csvData = `"WAVE accessibility detailed report: ${moment().format('MMMM Do YYYY, h:mma')}"\n\n`;
   map(data, (site) => {
@@ -30,7 +43,7 @@ function toCSVDetailed(data) {
         csvData += `${site.entry},Feature,${item.id},${item.count},${item.description}\n`;
       });
       map(site.data.categories.structure.items, (item) => {
-        csvData += `${site.entry},Structur,${item.id},${item.count},${item.description}\n`;
+        csvData += `${site.entry},Structure,${item.id},${item.count},${item.description}\n`;
       });
       map(site.data.categories.html5.items, (item) => {
         csvData += `${site.entry},HTML5 and ARIA,${item.id},${item.count},${item.description}\n`;
@@ -46,6 +59,11 @@ function toCSVDetailed(data) {
   return blob;
 }
 
+/**
+ * Converts summary report data to HTML format
+ * @param  {array} data - summary report data
+ * @return {blob} blob of converted HTML data
+ */
 function toHTMLSummary(data) {
   let htmlData = `<!doctype html>
     <html lang="en">
@@ -103,6 +121,11 @@ function toHTMLSummary(data) {
   return blob;
 }
 
+/**
+ * Converts detailed report data to HTML format
+ * @param  {array} data - detailed report data
+ * @return {blob} blob of converted HTML data
+ */
 function toHTMLDetailed(data) {
   let htmlData = `<!doctype html>
     <html lang="en">
@@ -194,12 +217,23 @@ function toHTMLDetailed(data) {
   return blob;
 }
 
+/**
+ * Converts summary or detailed report data to JSON format
+ * @param  {array} data - summary or detailed report data
+ * @return {blob} blob of converted JSON data
+ */
 export function toJSON(data) {
   const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
 
   return blob;
 }
 
+/**
+ * Converts data to CSV format
+ * @param  {array} data - report data
+ * @param  {number} scanType - Scan type: 1 for summary or 2 for detailed
+ * @return {blob} blob of converted CSV data
+ */
 export function toCSV(data, scanType) {
   if (scanType === 1) {
     return toCSVSummary(data);
@@ -210,6 +244,12 @@ export function toCSV(data, scanType) {
   return false;
 }
 
+/**
+ * Converts data to HTML format
+ * @param  {array} data - report data
+ * @param  {number} scanType - Scan type: 1 for summary or 2 for detailed
+ * @return {blob} blob of converted HTML data
+ */
 export function toHTML(data, scanType) {
   if (scanType === 1) {
     return toHTMLSummary(data);
