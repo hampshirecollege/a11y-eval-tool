@@ -1,9 +1,16 @@
+/**
+ * External dependencies
+ */
 import React, { Component } from 'react';
-import { SummaryTable, DetailedPanel } from '../components';
-import { Alert, Panel, Input, ButtonInput, Modal, Button, ProgressBar } from 'react-bootstrap';
-import asyncMap from 'async.map';
+import { Alert, Panel, ProgressBar } from 'react-bootstrap';
 import map from 'lodash.map';
+import asyncMap from 'async.map';
 import { saveAs } from 'browser-filesaver';
+
+/**
+ * Internal dependencies
+ */
+import { ScanForm, SummaryTable, DetailedPanel } from '../components';
 import * as Convert from '../utils/convertData';
 
 export default class A11yMain extends Component {
@@ -23,53 +30,12 @@ export default class A11yMain extends Component {
     this.scanURLs = this.scanURLs.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.export = this.export.bind(this);
+    this.exportReport = this.exportReport.bind(this);
   }
 
-  preventDefault(event) {
-    event.preventDefault();
-  }
-
-  openModal() {
-    this.setState({ showModal: true });
-  }
-
-  closeModal() {
-    this.setState({ showModal: false });
-  }
-
-  export() {
-    const rawData = this.state.reportData;
-    const scanType = this.state.scanType;
-    const select = document.getElementById('file-type-select');
-    const fileName = document.getElementById('filename').value;
-    const options = select.options;
-
-    if (select.selectedIndex === -1) {
-      alert('Please select one or more file types to export as.');
-    } else {
-      map(options, (option) => {
-        if (option.selected) {
-          switch (option.value) {
-            case 'json':
-              saveAs(Convert.toJSON(rawData), `${fileName}.json`);
-              break;
-            case 'csv':
-              saveAs(Convert.toCSV(rawData, scanType), `${fileName}.csv`);
-              break;
-            case 'html':
-              saveAs(Convert.toHTML(rawData, scanType), `${fileName}.html`);
-              break;
-            default:
-              alert('Error: unknown file type');
-          }
-        }
-      });
-
-      this.setState({ showModal: false });
-    }
-  }
-
+  /**
+   * Loops through URL list and fetches WAVE report data for each URL
+   */
   scanURLs() {
     const scanType = Number(document.getElementById('scan-type').value);
     const apiKey = document.getElementById('api-key').value;
@@ -126,6 +92,53 @@ export default class A11yMain extends Component {
     });
   }
 
+  /**
+   * Converts raw data to file types selected and saves files
+   */
+  exportReport() {
+    const rawData = this.state.reportData;
+    const scanType = this.state.scanType;
+    const select = document.getElementById('file-type-select');
+    const fileName = document.getElementById('filename').value;
+    const options = select.options;
+
+    if (select.selectedIndex === -1) {
+      alert('Please select one or more file types to export as.');
+    } else {
+      map(options, (option) => {
+        if (option.selected) {
+          switch (option.value) {
+            case 'json':
+              saveAs(Convert.toJSON(rawData), `${fileName}.json`);
+              break;
+            case 'csv':
+              saveAs(Convert.toCSV(rawData, scanType), `${fileName}.csv`);
+              break;
+            case 'html':
+              saveAs(Convert.toHTML(rawData, scanType), `${fileName}.html`);
+              break;
+            default:
+              alert('Error: unknown file type');
+          }
+        }
+      });
+
+      this.setState({ showModal: false });
+    }
+  }
+
+  preventDefault(event) {
+    event.preventDefault();
+  }
+
+  openModal() {
+    this.setState({ showModal: true });
+  }
+
+  closeModal() {
+    this.setState({ showModal: false });
+  }
+
   render() {
     return (
       <div className="main">
@@ -135,74 +148,15 @@ export default class A11yMain extends Component {
           Please visit their websites to learn more about web accessibility and to purchase API credits.
         </Alert>
         <Panel header={<h2>Scan Info.</h2>}>
-          <form onSubmit={this.preventDefault}>
-            <div className="options-key-container">
-              <Input
-                type="select"
-                className="type-select"
-                label="Scan Type"
-                id="scan-type"
-                defaultValue="1"
-              >
-                <optgroup label="Scan Type">
-                  <option value="1">Summary (1 credit)</option>
-                  <option value="2">Detailed (2 credits)</option>
-                </optgroup>
-              </Input>
-              <Input
-                className="key-text"
-                type="text"
-                label="WAVE API Key"
-                id="api-key"
-                placeholder="Enter WAVE API key"
-              />
-            </div>
-            <Input
-              type="textarea"
-              spellCheck="false"
-              label="URL List"
-              id="url-list"
-              placeholder="Enter a carriage return separated URL list to scan.
-              The protocol (http or https) is not necessary and will be stripped from the results."
-            />
-            <div className="button-container" aria-live="polite">
-              <ButtonInput value="Scan URLs" onClick={this.scanURLs} />
-              {this.state.reportData.length !== 0 &&
-                <ButtonInput value="Export Report" onClick={this.openModal} />
-              }
-              <Modal show={this.state.showModal} onHide={this.closeModal}>
-                <Modal.Header closeButton>
-                  <Modal.Title>Export Report Data</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <form>
-                    <Input
-                      id="file-type-select"
-                      type="select"
-                      label="Select File Format(s)"
-                      placeholder="file format"
-                      multiple
-                    >
-                      <option value="json">JSON</option>
-                      <option value="csv">CSV</option>
-                      <option value="html">HTML</option>
-                    </Input>
-                    <Input
-                      className="filename"
-                      type="text"
-                      label="Filename"
-                      id="filename"
-                      placeholder="Enter filename (without extension(s))"
-                    />
-                  </form>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button bsStyle="primary" onClick={this.export}>Export Data</Button>
-                  <Button onClick={this.closeModal}>Close</Button>
-                </Modal.Footer>
-              </Modal>
-            </div>
-          </form>
+          <ScanForm
+            dataLength={this.state.reportData.length}
+            preventDefault={this.preventDefault}
+            scanURLs={this.scanURLs}
+            exportReport={this.exportReport}
+            showModal={this.state.showModal}
+            openModal={this.openModal}
+            closeModal={this.closeModal}
+          />
           {this.state.isFetching ?
             <ProgressBar
               active
