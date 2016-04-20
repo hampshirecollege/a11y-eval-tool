@@ -1,7 +1,19 @@
+/**
+ * External dependencies
+ */
 import React, { Component, PropTypes } from 'react';
-import { DetailedTableSingle, DetailedTableAll } from '../components';
 import { Panel, Tabs, Tab } from 'react-bootstrap';
 import map from 'lodash.map';
+
+/**
+ * Internal dependencies
+ */
+import { DetailedTableSingle, DetailedTableAll } from '../components';
+
+const propTypes = {
+  // data: WAVE accessibility report type 2 data
+  data: PropTypes.array.isRequired,
+};
 
 export default class DetailedPanel extends Component {
   shouldComponentUpdate(nextProps) {
@@ -105,8 +117,6 @@ export default class DetailedPanel extends Component {
   }
 }
 
-DetailedPanel.propTypes = {
-  data: PropTypes.array.isRequired,
-};
+DetailedPanel.propTypes = propTypes;
 
 export default DetailedPanel;

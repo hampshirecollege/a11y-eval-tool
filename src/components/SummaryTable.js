@@ -1,6 +1,14 @@
+/**
+ * External dependencies
+ */
 import React, { Component, PropTypes } from 'react';
 import { Panel, Table } from 'react-bootstrap';
 import map from 'lodash.map';
+
+const propTypes = {
+  // data: WAVE accessibility report type 1 data
+  data: PropTypes.array.isRequired,
+};
 
 export default class SummaryTable extends Component {
   shouldComponentUpdate(nextProps) {
@@ -49,8 +57,6 @@ export default class SummaryTable extends Component {
   }
 }
 
-SummaryTable.propTypes = {
-  data: PropTypes.array.isRequired,
-};
+SummaryTable.propTypes = propTypes;
 
 export default SummaryTable;
