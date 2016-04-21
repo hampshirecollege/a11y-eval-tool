@@ -54,7 +54,7 @@ function DetailedTableSingle({ itemType, caption, data, thStyle }) {
                 rootClose
                 placement="right"
                 overlay={
-                  <Popover id={`${item.id}`} title={waveDocs[item.id].data.title}>
+                  <Popover title={waveDocs[item.id].data.title}>
                     <p><strong>What It Means</strong></p>
                     <p>{he.decode(`${waveDocs[item.id].data.summary}`)}</p>
                     <p><strong>Why It Matters</strong></p>
