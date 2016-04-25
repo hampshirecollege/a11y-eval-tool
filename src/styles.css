@@ -312,35 +312,3 @@ footer {
     color: white;
   }
 }
-
-/* Tablesort styling */
-
-th.sort-header {
-  cursor: pointer;
-}
-table th.sort-header:after {
-  content: '';
-  float: right;
-  margin-top: 7px;
-  border-width: 0 6px 6px;
-  border-style: solid;
-  border-color: #303030 transparent;
-  opacity: 0.7;
-  visibility: hidden;
-}
-table th.th-contrast:after {
-  border-color: white transparent;
-  border-width: 0 6px 6px;
-  opacity: .8;
-}
-table th.sort-header:hover:after {
-  visibility: visible;
-}
-table th.sort-up:after, table th.sort-down:after, table th.sort-down:hover:after {
-  visibility: visible;
-  opacity: 0.5;
-}
-table th.sort-up:after {
-  border-bottom: none;
-  border-width: 6px 6px 0;
-}
