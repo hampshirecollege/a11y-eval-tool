@@ -258,6 +258,32 @@ button.btn-link {
     font-weight: 600;
   }
 }
+.item-panel{
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  
+  .panel-heading {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      
+    .panel-title {
+      font-size: 14px;
+      
+      a {
+        border-bottom: 0;
+        
+        &:hover, &:focus {
+          border-bottom: 0;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+}
 a.guideline-link {
   border-bottom: none;
   cursor: pointer;
