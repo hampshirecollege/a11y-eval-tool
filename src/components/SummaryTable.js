@@ -18,7 +18,7 @@ export default class SummaryTable extends Component {
   render() {
     return (
       <Panel aria-live="polite" header={<h2>Summary Report</h2>}>
-        <Table id="sum-table" fill striped bordered condensed hover responsive on>
+        <Table id="sum-table" fill striped bordered hover responsive>
           <caption className="sr-only">Summary results</caption>
           <thead>
             <tr>
@@ -58,5 +58,3 @@ export default class SummaryTable extends Component {
 }
 
 SummaryTable.propTypes = propTypes;
-
-export default SummaryTable;
