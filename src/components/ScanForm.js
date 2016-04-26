@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React, { PropTypes } from 'react';
-import { Input, ButtonInput } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
 /**
  * Internal dependencies
@@ -33,40 +33,33 @@ function ScanForm({ dataLength, preventDefault, scanURLs, exportReport, showModa
   return (
     <form onSubmit={preventDefault}>
       <div className="options-key-container">
-        <Input
-          type="select"
-          className="type-select"
-          label="Scan Type"
-          id="scan-type"
-          defaultValue="1"
-        >
-          <optgroup label="Scan Type">
+        <FormGroup controlId="scan-type">
+          <ControlLabel>Scan Type</ControlLabel>
+          <FormControl componentClass="select">
             <option value="1">Summary (1 credit)</option>
             <option value="2">Detailed (2 credits)</option>
-          </optgroup>
-        </Input>
-        <Input
-          className="key-text"
-          type="text"
-          label="WAVE API Key"
-          id="api-key"
-          placeholder="Enter WAVE API key"
-        />
+          </FormControl>
+        </FormGroup>
+        <FormGroup controlId="api-key">
+          <ControlLabel>WAVE API Key</ControlLabel>
+          <FormControl placeholder="Enter WAVE API key" />
+        </FormGroup>
       </div>
-      <Input
-        type="textarea"
-        spellCheck="false"
-        label="URL List"
-        id="url-list"
-        placeholder="Enter a carriage return separated URL list to scan.
-        The protocol (http or https) is not necessary and will be stripped from the results."
-      />
+      <FormGroup controlId="url-list">
+        <ControlLabel>URL List</ControlLabel>
+        <FormControl
+          componentClass="textarea"
+          spellCheck="false"
+          placeholder="Enter a carriage return separated URL list to scan.
+          The protocol (http or https) is not necessary and will be stripped from the results."
+        />
+      </FormGroup>
       <div className="button-container" aria-live="polite">
-        <ButtonInput value="Scan URLs" onClick={scanURLs} />
+        <Button onClick={scanURLs}>Scan URLs</Button>
         {dataLength !== 0 &&
-          <ButtonInput value="Export Report" onClick={openModal} />
+          <Button id="export-button" onClick={openModal}>Export Report</Button>
         }
-        <ExportModal show={showModal} close={closeModal} exportReport={exportReport} />
+        <ExportModal show={showModal} close={closeModal} exportReport={exportReport} preventDefault={preventDefault} />
       </div>
     </form>
   );

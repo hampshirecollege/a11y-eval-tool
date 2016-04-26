@@ -2,9 +2,11 @@
  * External dependencies
  */
 import React, { PropTypes } from 'react';
-import { Modal, Input, Button } from 'react-bootstrap';
+import { Modal, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
 const propTypes = {
+  // preventDefault: Prevents form submission
+  preventDefault: PropTypes.func.isRequired,
   // exportReport: Export report data to file
   exportReport: PropTypes.func.isRequired,
   // showModal: Shows the modal
@@ -16,32 +18,26 @@ const propTypes = {
 /**
  * Component
  */
-function ExportModal({ show, close, exportReport }) {
+function ExportModal({ show, close, exportReport, preventDefault }) {
   return (
-    <Modal show={show} onHide={close}>
+    <Modal show={show} onHide={close} onExited={() => document.getElementById('export-button').focus()}>
       <Modal.Header closeButton>
         <Modal.Title>Export Report Data</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <form>
-          <Input
-            id="file-type-select"
-            type="select"
-            label="Select File Format(s)"
-            placeholder="file format"
-            multiple
-          >
-            <option value="json">JSON</option>
-            <option value="csv">CSV</option>
-            <option value="html">HTML</option>
-          </Input>
-          <Input
-            className="filename"
-            type="text"
-            label="Filename"
-            id="filename"
-            placeholder="Enter filename (without extension(s))"
-          />
+        <form onSubmit={preventDefault}>
+          <FormGroup controlId="file-type-select">
+            <ControlLabel>Select File Format(s)</ControlLabel>
+            <FormControl componentClass="select">
+              <option value="json">JSON</option>
+              <option value="csv">CSV</option>
+              <option value="html">HTML</option>
+            </FormControl>
+          </FormGroup>
+          <FormGroup controlId="filename">
+            <ControlLabel>Filename</ControlLabel>
+            <FormControl placeholder="Enter filename (without extension(s))" />
+          </FormGroup>
         </form>
       </Modal.Body>
       <Modal.Footer>
