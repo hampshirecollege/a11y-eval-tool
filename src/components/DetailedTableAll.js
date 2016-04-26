@@ -27,42 +27,42 @@ function DetailedTableAll({ siteIndex, entry, data }) {
   return (
     <div className="table-all">
       <DetailedTableSingle
-        siteIndex={siteIndex}
+        siteIndex={`all-${siteIndex}`}
         itemType="ERRORS"
         caption={`Errors for ${entry}`}
         data={data.categories.error}
         thStyle="th-errors"
       />
       <DetailedTableSingle
-        siteIndex={siteIndex}
+        siteIndex={`all-${siteIndex}`}
         itemType="ALERTS"
         caption={`Alerts for ${entry}`}
         data={data.categories.alert}
         thStyle="th-alerts"
       />
       <DetailedTableSingle
-        siteIndex={siteIndex}
+        siteIndex={`all-${siteIndex}`}
         itemType="FEATURES"
         caption={`Features for ${entry}`}
         data={data.categories.feature}
         thStyle="th-features"
       />
       <DetailedTableSingle
-        siteIndex={siteIndex}
+        siteIndex={`all-${siteIndex}`}
         itemType="STRUCTURE"
         caption={`Structure items for ${entry}`}
         data={data.categories.structure}
         thStyle="th-structure"
       />
       <DetailedTableSingle
-        siteIndex={siteIndex}
+        siteIndex={`all-${siteIndex}`}
         itemType="HTML5 and ARIA"
         caption={`HTML5 and ARIA items for ${entry}`}
         data={data.categories.html5}
         thStyle="th-html5"
       />
       <DetailedTableSingle
-        siteIndex={siteIndex}
+        siteIndex={`all-${siteIndex}`}
         itemType="CONTRAST"
         caption={`Contrast items for ${entry}`}
         data={data.categories.contrast}
