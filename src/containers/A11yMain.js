@@ -162,7 +162,8 @@ export default class A11yMain extends Component {
               active
               striped
               bsStyle="success"
-              label="%(percent)s%"
+              label="Scan in progress..."
+              srOnly
               max={this.state.totalProgress}
               now={this.state.progressed}
             />
