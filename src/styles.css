@@ -45,7 +45,7 @@ h2.panel-title {
   font-size: 18px;
   font-weight: 600;
   
-  a, a:hover {
+  a, a:hover, a:focus {
     border-bottom: 0;
   }
 }
@@ -64,9 +64,13 @@ textarea {
   min-height: 140px;
   max-width: 100%;
 }
-.button-container div {
+.button-container button {
   display: inline-block;
-  padding-right: 20px;
+  margin-right: 20px;
+}
+.progress {
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 .progress-bar {
   min-width: 2em;
@@ -76,7 +80,7 @@ a, a:focus {
   color: rgb(64, 64, 64);
   text-decoration: none;
 }
-a:hover, a:active {
+a:hover, a:active, a:focus {
   border-bottom: 1px dashed rgb(64, 64, 64);
   text-decoration: none;
 }
@@ -134,7 +138,7 @@ button.btn-link {
     background-color: #f2dede;
     color: #a94442;
   }  
-  a:hover {
+  a:hover, a:focus {
     border: 1px solid #a94442;
     border-bottom-color: transparent;
     font-weight: 600;
@@ -153,7 +157,7 @@ button.btn-link {
     background-color: #fcf8e3;
     color: #8a6d3b;
   }  
-  a:hover {
+  a:hover, a:focus {
     border: 1px solid #8a6d3b;
     border-bottom-color: transparent;
     font-weight: 600;
@@ -171,7 +175,7 @@ button.btn-link {
     background-color: #dff0d8;
     color: #3c763d;
   }  
-  a:hover {
+  a:hover, :focus {
     border: 1px solid #3c763d;
     border-bottom-color: transparent;
     font-weight: 600;
@@ -189,7 +193,7 @@ button.btn-link {
     background-color: #d9edf7;
     color: #31708f;
   }  
-  a:hover {
+  a:hover, a:focus {
     border: 1px solid #31708f;
     border-bottom-color: transparent;
     font-weight: 600;
@@ -207,7 +211,7 @@ button.btn-link {
     background-color: #e8eaf8;
     color: #656789;
   }  
-  a:hover {
+  a:hover, a:focus {
     border: 1px solid #656789;
     border-bottom-color: transparent;
     font-weight: 600;
@@ -225,7 +229,7 @@ button.btn-link {
     background-color: #666666;
     color: #ffffff;
   }  
-  a:hover {
+  a:hover, a:focus {
     border: 1px solid #ffffff;
     border-bottom-color: transparent;
     font-weight: 600;
@@ -245,7 +249,7 @@ button.btn-link {
     border-bottom-color: transparent;
     color: #666666;
   }  
-  a:hover {
+  a:hover, a:focus {
     border: 1px solid #666666;
     border-bottom-color: transparent;
     font-weight: 600;
@@ -257,32 +261,6 @@ button.btn-link {
     color: #666666;
     font-weight: 600;
   }
-}
-.item-panel{
-  background-color: transparent;
-  border: 0;
-  box-shadow: none;
-  margin-bottom: 0;
-  
-  .panel-heading {
-      background-color: transparent;
-      border: 0;
-      padding: 0;
-      
-    .panel-title {
-      font-size: 14px;
-      
-      a {
-        border-bottom: 0;
-        
-        &:hover, &:focus {
-          border-bottom: 0;
-          font-weight: 600;
-        }
-      }
-    }
-  }
-  
 }
 a.guideline-link {
   border-bottom: none;
@@ -307,7 +285,7 @@ footer {
   text-align: center;
   width: 100%;
   
-  a, a:hover {
+  a, a:hover, a:focus {
     border-bottom-color: white;
     color: white;
   }
