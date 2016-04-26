@@ -23,9 +23,9 @@ export default class SummaryTable extends Component {
           <thead>
             <tr>
               <th scope="col">SITE URL</th>
-              <th className="th-errors" scope="col">ERRORS</th>
-              <th className="th-alerts" scope="col">ALERTS</th>
-              <th className="th-features" scope="col">FEATURES</th>
+              <th className="th-error" scope="col">ERRORS</th>
+              <th className="th-alert" scope="col">ALERTS</th>
+              <th className="th-feature" scope="col">FEATURES</th>
               <th className="th-structure" scope="col">STRUCTURE</th>
               <th className="th-html5" scope="col">HTML5 and ARIA</th>
               <th className="th-contrast" scope="col">CONTRAST</th>
