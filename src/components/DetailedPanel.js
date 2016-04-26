@@ -20,6 +20,17 @@ export default class DetailedPanel extends Component {
     return this.props.data !== nextProps.data;
   }
 
+  /**
+   * Renders react-bootstrap Tab component for item type
+   * @param  {string} tabType - type of tab (e.g. error)
+   * @param  {number} eventKey
+   * @param  {string} title - tab title
+   * @param  {caption} caption - caption for table, screen reader only
+   * @param  {object} item - URL item object
+   * @param  {number} index - index of item in array
+   * @param  {object} data - items object (e.g. error items)
+   * @return {component} react-bootstrap Tab component
+   */
   renderTab(tabType, eventKey, title, caption, item, index, data) {
     return (
       <Tab
