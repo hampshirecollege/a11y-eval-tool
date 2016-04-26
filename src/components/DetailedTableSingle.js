@@ -28,7 +28,7 @@ const propTypes = {
   ]).isRequired,
   // thStyle: Table heading styles for font and background colors
   thStyle: PropTypes.oneOf([
-    'th-errors', 'th-alerts', 'th-features', 'th-structure', 'th-html5', 'th-contrast',
+    'th-error', 'th-alert', 'th-feature', 'th-structure', 'th-html5', 'th-contrast',
   ]).isRequired,
 };
 

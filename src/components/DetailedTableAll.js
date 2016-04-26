@@ -31,21 +31,21 @@ function DetailedTableAll({ siteIndex, entry, data }) {
         itemType="ERRORS"
         caption={`Errors for ${entry}`}
         data={data.categories.error}
-        thStyle="th-errors"
+        thStyle="th-error"
       />
       <DetailedTableSingle
         siteIndex={`all-${siteIndex}`}
         itemType="ALERTS"
         caption={`Alerts for ${entry}`}
         data={data.categories.alert}
-        thStyle="th-alerts"
+        thStyle="th-alert"
       />
       <DetailedTableSingle
         siteIndex={`all-${siteIndex}`}
         itemType="FEATURES"
         caption={`Features for ${entry}`}
         data={data.categories.feature}
-        thStyle="th-features"
+        thStyle="th-feature"
       />
       <DetailedTableSingle
         siteIndex={`all-${siteIndex}`}

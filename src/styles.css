@@ -106,15 +106,15 @@ button.btn-link {
 .table-all {
   margin-top: 16px;
 }
-.th-errors {
+.th-error {
   background-color: #f2dede;
   color: #a94442;
 }
-.th-alerts {
+.th-alert {
   background-color: #fcf8e3;
   color: #8a6d3b;
 }
-.th-features {
+.th-feature {
   background-color: #dff0d8;
   color: #3c763d;
 }
