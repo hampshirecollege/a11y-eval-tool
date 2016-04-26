@@ -3,7 +3,6 @@
  */
 import React, { Component } from 'react';
 import { Alert, Panel, ProgressBar } from 'react-bootstrap';
-import map from 'lodash.map';
 import asyncMap from 'async.map';
 import { saveAs } from 'browser-filesaver';
 
@@ -100,31 +99,26 @@ export default class A11yMain extends Component {
     const scanType = this.state.scanType;
     const select = document.getElementById('file-type-select');
     const fileName = document.getElementById('filename').value;
-    const options = select.options;
 
     if (select.selectedIndex === -1) {
       alert('Please select one or more file types to export as.');
     } else {
-      map(options, (option) => {
-        if (option.selected) {
-          switch (option.value) {
-            case 'json':
-              saveAs(Convert.toJSON(rawData), `${fileName}.json`);
-              break;
-            case 'csv':
-              saveAs(Convert.toCSV(rawData, scanType), `${fileName}.csv`);
-              break;
-            case 'html':
-              saveAs(Convert.toHTML(rawData, scanType), `${fileName}.html`);
-              break;
-            default:
-              alert('Error: unknown file type');
-          }
-        }
-      });
-
-      this.setState({ showModal: false });
+      switch (select.value) {
+        case 'json':
+          saveAs(Convert.toJSON(rawData), `${fileName}.json`);
+          break;
+        case 'csv':
+          saveAs(Convert.toCSV(rawData, scanType), `${fileName}.csv`);
+          break;
+        case 'html':
+          saveAs(Convert.toHTML(rawData, scanType), `${fileName}.html`);
+          break;
+        default:
+          alert('Error: unknown file type');
+      }
     }
+
+    this.setState({ showModal: false });
   }
 
   preventDefault(event) {
