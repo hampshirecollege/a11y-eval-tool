@@ -20,6 +20,24 @@ export default class DetailedPanel extends Component {
     return this.props.data !== nextProps.data;
   }
 
+  renderTab(tabType, eventKey, title, caption, item, index, data) {
+    return (
+      <Tab
+        tabClassName={`tab-${tabType}`}
+        eventKey={eventKey}
+        title={`${title} ${data.count}`}
+        disabled={data.count === 0}
+      >
+        <DetailedTableSingle
+          siteIndex={index}
+          caption={`${caption} ${item.entry}`}
+          data={data}
+          thStyle={`th-${tabType}`}
+        />
+      </Tab>
+    );
+  }
+
   render() {
     return (
       <Panel aria-live="polite" header={<h2>Detailed Reports</h2>}>
@@ -27,84 +45,18 @@ export default class DetailedPanel extends Component {
           <Panel key={index} header={<h3><a href={`//${item.entry}`} target="_blank">{item.entry}</a></h3>}>
             {item.error === '' ?
               <Tabs id={`${item.entry}-tabs`} defaultActiveKey={1} animation={false}>
-                <Tab
-                  tabClassName="tab-error"
-                  eventKey={1}
-                  title={`Errors: ${item.data.categories.error.count}`}
-                  disabled={item.data.categories.error.count === 0}
-                >
-                  <DetailedTableSingle
-                    siteIndex={index}
-                    caption={`Errors for ${item.entry}`}
-                    data={item.data.categories.error}
-                    thStyle="th-errors"
-                  />
-                </Tab>
-                <Tab
-                  tabClassName="tab-alert"
-                  eventKey={2}
-                  title={`Alerts: ${item.data.categories.alert.count}`}
-                  disabled={item.data.categories.alert.count === 0}
-                >
-                  <DetailedTableSingle
-                    siteIndex={index}
-                    caption={`Alerts for ${item.entry}`}
-                    data={item.data.categories.alert}
-                    thStyle="th-alerts"
-                  />
-                </Tab>
-                <Tab
-                  tabClassName="tab-feature"
-                  eventKey={3}
-                  title={`Features: ${item.data.categories.feature.count}`}
-                  disabled={item.data.categories.feature.count === 0}
-                >
-                  <DetailedTableSingle
-                    siteIndex={index}
-                    caption={`Features for ${item.entry}`}
-                    data={item.data.categories.feature}
-                    thStyle="th-features"
-                  />
-                </Tab>
-                <Tab
-                  tabClassName="tab-structure"
-                  eventKey={4}
-                  title={`Structure: ${item.data.categories.structure.count}`}
-                  disabled={item.data.categories.structure.count === 0}
-                >
-                  <DetailedTableSingle
-                    siteIndex={index}
-                    caption={`Structure items for ${item.entry}`}
-                    data={item.data.categories.structure}
-                    thStyle="th-structure"
-                  />
-                </Tab>
-                <Tab
-                  tabClassName="tab-html5"
-                  eventKey={5}
-                  title={`HTML5 and ARIA: ${item.data.categories.html5.count}`}
-                  disabled={item.data.categories.html5.count === 0}
-                >
-                  <DetailedTableSingle
-                    siteIndex={index}
-                    caption={`HTML5 and ARIA items for ${item.entry}`}
-                    data={item.data.categories.html5}
-                    thStyle="th-html5"
-                  />
-                </Tab>
-                <Tab
-                  tabClassName="tab-contrast"
-                  eventKey={6}
-                  title={`Contrast: ${item.data.categories.contrast.count}`}
-                  disabled={item.data.categories.contrast.count === 0}
-                >
-                  <DetailedTableSingle
-                    siteIndex={index}
-                    caption={`Contrast items for ${item.entry}`}
-                    data={item.data.categories.contrast}
-                    thStyle="th-contrast"
-                  />
-                </Tab>
+                {this.renderTab('error', 1, 'Errors:', 'Errors for', item, index, item.data.categories.error)}
+                {this.renderTab('alert', 2, 'Alerts:', 'Alerts for', item, index, item.data.categories.alert)}
+                {this.renderTab('feature', 3, 'Features:', 'Features for', item, index, item.data.categories.feature)}
+                {this.renderTab('structure', 4, 'Structure:', 'Structure items for', item, index,
+                  item.data.categories.structure
+                )}
+                {this.renderTab('html5', 5, 'HTML5 and ARIA:', 'HTML5 and ARIA items for', item, index,
+                  item.data.categories.html5
+                )}
+                {this.renderTab('contrast', 6, 'Contrast:', 'Contrast items for', item, index,
+                  item.data.categories.contrast
+                )}
                 <Tab
                   tabClassName="tab-all"
                   eventKey={7}
