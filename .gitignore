@@ -38,4 +38,3 @@ list.txt
 .DS_Store
 wave_items.txt
 generateWaveDocs.js
-src/utils/tablesort.number.js
