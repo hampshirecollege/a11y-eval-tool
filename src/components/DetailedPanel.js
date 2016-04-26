@@ -24,16 +24,14 @@ export default class DetailedPanel extends Component {
     return (
       <Panel aria-live="polite" header={<h2>Detailed Reports</h2>}>
         {map(this.props.data, (item, index) =>
-          <Panel
-            key={this.props.data.indexOf(item)}
-            header={<h3><a href={`//${item.entry}`} target="_blank">{item.entry}</a></h3>}
-          >
+          <Panel key={index} header={<h3><a href={`//${item.entry}`} target="_blank">{item.entry}</a></h3>}>
             {item.error === '' ?
-              <Tabs defaultActiveKey={1} animation={false}>
+              <Tabs id={`${item.entry}-tabs`} defaultActiveKey={1} animation={false}>
                 <Tab
                   tabClassName="tab-error"
                   eventKey={1}
                   title={`Errors: ${item.data.categories.error.count}`}
+                  disabled={item.data.categories.error.count === 0}
                 >
                   <DetailedTableSingle
                     siteIndex={index}
@@ -46,6 +44,7 @@ export default class DetailedPanel extends Component {
                   tabClassName="tab-alert"
                   eventKey={2}
                   title={`Alerts: ${item.data.categories.alert.count}`}
+                  disabled={item.data.categories.alert.count === 0}
                 >
                   <DetailedTableSingle
                     siteIndex={index}
@@ -58,6 +57,7 @@ export default class DetailedPanel extends Component {
                   tabClassName="tab-feature"
                   eventKey={3}
                   title={`Features: ${item.data.categories.feature.count}`}
+                  disabled={item.data.categories.feature.count === 0}
                 >
                   <DetailedTableSingle
                     siteIndex={index}
@@ -70,6 +70,7 @@ export default class DetailedPanel extends Component {
                   tabClassName="tab-structure"
                   eventKey={4}
                   title={`Structure: ${item.data.categories.structure.count}`}
+                  disabled={item.data.categories.structure.count === 0}
                 >
                   <DetailedTableSingle
                     siteIndex={index}
@@ -82,6 +83,7 @@ export default class DetailedPanel extends Component {
                   tabClassName="tab-html5"
                   eventKey={5}
                   title={`HTML5 and ARIA: ${item.data.categories.html5.count}`}
+                  disabled={item.data.categories.html5.count === 0}
                 >
                   <DetailedTableSingle
                     siteIndex={index}
@@ -94,6 +96,7 @@ export default class DetailedPanel extends Component {
                   tabClassName="tab-contrast"
                   eventKey={6}
                   title={`Contrast: ${item.data.categories.contrast.count}`}
+                  disabled={item.data.categories.contrast.count === 0}
                 >
                   <DetailedTableSingle
                     siteIndex={index}
