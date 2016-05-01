@@ -8,7 +8,8 @@ import map from 'lodash.map';
 /**
  * Internal dependencies
  */
-import { DetailedTableSingle, DetailedTableAll } from '../components';
+import { DetailedTableSingle, DetailedTableAll } from '../../components';
+import styles from './DetailedPanel.css';
 
 const propTypes = {
   // data: WAVE accessibility report type 2 data
@@ -34,7 +35,7 @@ export default class DetailedPanel extends Component {
   renderTab(tabType, eventKey, title, caption, item, index, data) {
     return (
       <Tab
-        tabClassName={`tab-${tabType}`}
+        tabClassName={styles[tabType]}
         eventKey={eventKey}
         title={`${title} ${data.count}`}
         disabled={data.count === 0}
@@ -69,7 +70,7 @@ export default class DetailedPanel extends Component {
                   item.data.categories.contrast
                 )}
                 <Tab
-                  tabClassName="tab-all"
+                  tabClassName={styles.all}
                   eventKey={7}
                   title="View All"
                 >
@@ -80,7 +81,7 @@ export default class DetailedPanel extends Component {
                   />
                 </Tab>
               </Tabs>
-              : <span className="row-err">{item.error} unable to scan {item.entry}, check that the URL is correct.
+              : <span className={styles.rowErr}>{item.error} unable to scan {item.entry}, check that the URL is correct.
               </span>
             }
           </Panel>

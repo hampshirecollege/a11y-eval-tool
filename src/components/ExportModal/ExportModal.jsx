@@ -27,7 +27,7 @@ function ExportModal({ show, close, exportReport, preventDefault }) {
       <Modal.Body>
         <form onSubmit={preventDefault}>
           <FormGroup controlId="file-type-select">
-            <ControlLabel>Select File Format(s)</ControlLabel>
+            <ControlLabel>Select File Format</ControlLabel>
             <FormControl componentClass="select">
               <option value="json">JSON</option>
               <option value="csv">CSV</option>

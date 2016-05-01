@@ -6,7 +6,8 @@ import React, { PropTypes } from 'react';
 /**
  * Internal dependencies
  */
-import { DetailedTableSingle } from '../components';
+import { DetailedTableSingle } from '../../components';
+import styles from './DetailedTableAll.css';
 
 const propTypes = {
   // siteIndex: Index of site in URL array
@@ -25,7 +26,7 @@ const propTypes = {
  */
 function DetailedTableAll({ siteIndex, entry, data }) {
   return (
-    <div className="table-all">
+    <div className={styles.tableAll}>
       <DetailedTableSingle
         siteIndex={`all-${siteIndex}`}
         itemType="ERRORS"

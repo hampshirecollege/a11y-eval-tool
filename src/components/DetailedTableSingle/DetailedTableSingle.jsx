@@ -9,7 +9,8 @@ import he from 'he';
 /**
  * Internal dependencies
  */
-import waveDocs from '../wave_docs/wave_docs.json';
+import styles from './DetailedTableSingle.css';
+import waveDocs from '../../wave_docs/wave_docs.json';
 
 const propTypes = {
   // siteIndex: Index of site in URL array
@@ -64,16 +65,16 @@ export default class DetailedTableSingle extends Component {
 
   render() {
     return (
-      <Table className="results-table" fill striped bordered responsive tabIndex="0">
+      <Table className={styles.resultsTable} fill striped bordered responsive tabIndex="0">
         <caption className="sr-only">{this.props.caption}</caption>
         <thead>
           {this.props.data.count > 0 &&
             <tr>
-              <th className={this.props.thStyle} scope="col">
+              <th className={styles[this.props.thStyle]} scope="col">
                 {this.props.itemType !== undefined ? this.props.itemType : 'ITEM'}
               </th>
-              <th className={this.props.thStyle} scope="col">COUNT</th>
-              <th className={this.props.thStyle} scope="col">DESCRIPTION</th>
+              <th className={styles[this.props.thStyle]} scope="col">COUNT</th>
+              <th className={styles[this.props.thStyle]} scope="col">DESCRIPTION</th>
             </tr>
           }
         </thead>

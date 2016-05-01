@@ -5,6 +5,11 @@ import React, { Component, PropTypes } from 'react';
 import { Panel, Table } from 'react-bootstrap';
 import map from 'lodash.map';
 
+/**
+ * Internal dependencies
+ */
+import styles from './SummaryTable.css';
+
 const propTypes = {
   // data: WAVE accessibility report type 1 data
   data: PropTypes.array.isRequired,
@@ -23,12 +28,12 @@ export default class SummaryTable extends Component {
           <thead>
             <tr>
               <th scope="col">SITE URL</th>
-              <th className="th-error" scope="col">ERRORS</th>
-              <th className="th-alert" scope="col">ALERTS</th>
-              <th className="th-feature" scope="col">FEATURES</th>
-              <th className="th-structure" scope="col">STRUCTURE</th>
-              <th className="th-html5" scope="col">HTML5 and ARIA</th>
-              <th className="th-contrast" scope="col">CONTRAST</th>
+              <th className={styles['th-error']} scope="col">ERRORS</th>
+              <th className={styles['th-alert']} scope="col">ALERTS</th>
+              <th className={styles['th-feature']} scope="col">FEATURES</th>
+              <th className={styles['th-structure']} scope="col">STRUCTURE</th>
+              <th className={styles['th-html5']} scope="col">HTML5 and ARIA</th>
+              <th className={styles['th-contrast']} scope="col">CONTRAST</th>
             </tr>
           </thead>
           <tbody>

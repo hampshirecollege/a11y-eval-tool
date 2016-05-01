@@ -7,7 +7,7 @@ import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 /**
  * Internal dependencies
  */
-import { ExportModal } from '../components';
+import { ExportModal } from '../../components';
 
 const propTypes = {
   // dataLength: Length of data array, if > 0, then render export button
