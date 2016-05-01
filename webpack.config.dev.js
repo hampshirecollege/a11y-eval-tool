@@ -7,45 +7,60 @@ module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client',
-    './src/index'
+    './src/index',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
-      'Promise': 'exports?global.Promise!es6-promise',
-      'fetch': 'exports?global.fetch!whatwg-fetch'
+      Promise: 'exports?global.Promise!es6-promise',
+      fetch: 'exports?global.fetch!whatwg-fetch',
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
+        NODE_ENV: JSON.stringify('development'),
+      },
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
+  externals: {
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+  },
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'src')
+        test: /\.(js|jsx)$/,
+        loader: 'babel',
+        include: path.join(__dirname, 'src'),
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css', 'postcss']
+        include: /components/,
+        loaders: [
+          'style-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        exclude: /components/,
+        loader: 'style!css!postcss',
       },
       {
         test: /\.json$/,
-        loader: 'json'
-      }
-    ]
+        loader: 'json',
+      },
+    ],
   },
-  postcss: function () {
-    return [autoprefixer, precss]
-  }
-}
+  postcss() {
+    return [precss, autoprefixer];
+  },
+};
