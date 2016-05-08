@@ -194,7 +194,7 @@ function toHTMLDetailed(data) {
       map(site.data.categories.html5.items, (item) => {
         htmlData += `<tr class="html5">
           <td scope="row"><a href="http://${site.entry}" target="_blank">${site.entry}</a></td>
-          <td>HTML5 and AIRA</td>
+          <td>HTML5 and ARIA</td>
           <td>${item.id}</td>
           <td>${item.count}</td>
           <td>${item.description}</td></tr>`;
