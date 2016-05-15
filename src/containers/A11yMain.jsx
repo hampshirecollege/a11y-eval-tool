@@ -40,9 +40,9 @@ export default class A11yMain extends Component {
   scanURLs() {
     const scanType = Number(document.getElementById('scan-type').value);
     const apiKey = document.getElementById('api-key').value;
-    const urlList = document.getElementById('url-list').value.split('\n').filter((url) =>
-      url.trim() !== ''
-    );
+    const urlList = document.getElementById('url-list').value
+      .split('\n')
+      .filter((url) => url.trim() !== '');
     const totalProgress = urlList.length * 2;
     const errorData = {
       categories: {
@@ -66,7 +66,7 @@ export default class A11yMain extends Component {
     asyncMap(urlList, (urlEntry, callback) => {
       let entry = urlEntry;
 
-      entry = entry.trim().replace(/.*?:\/\//g, '');
+      entry = entry.replace(/.*?:\/\//g, '').trim();
 
       fetch(`//wave.webaim.org/api/request?key=${apiKey}&url=${entry}&reporttype=${scanType}`)
         .then((response) => {
@@ -79,7 +79,8 @@ export default class A11yMain extends Component {
           } else { // successful JSON response, but not from WAVE scan
             callback(null, { entry, error: 'Error:', data: errorData });
           }
-        }).catch(() => { // unsuccessful JSON response
+        }).catch((err) => { // unsuccessful JSON response
+          console.log(err);
           callback(null, { entry, error: 'Error:', data: errorData });
         });
     }, (err, results) => {
@@ -139,9 +140,12 @@ export default class A11yMain extends Component {
     return (
       <div className="main">
         <Alert bsStyle="info">
-          This tool leverages the <a href="http://wave.webaim.org/api/" target="_blank">WAVE API</a> developed
-          by <a href="http://webaim.org/" target="_blank">WebAIM</a>.
-          Please visit their websites to learn more about web accessibility and to purchase API credits.
+          This tool leverages the
+          &nbsp;<a href="http://wave.webaim.org/api/" target="_blank">
+          WAVE API</a> developed by
+          &nbsp;<a href="http://webaim.org/" target="_blank">WebAIM</a>.
+          Please visit their websites to learn more about web accessibility
+          and to purchase API credits.
         </Alert>
         <Panel header={<h2>Scan Info.</h2>}>
           <ScanForm
