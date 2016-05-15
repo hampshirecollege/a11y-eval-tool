@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 /**
  * Internal dependencies
  */
-import A11yMain from './containers/A11yMain';
+import A11yMain from './containers/A11yMain.jsx';
 import './siteStyles.css';
 
 ReactDOM.render(

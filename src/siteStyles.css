@@ -49,24 +49,9 @@ h2.panel-title {
     border-bottom: 0;
   }
 }
-.options-key-container {
-  display: flex;
-  flex-flow: row wrap;
-  align-content: stretch;
-  justify-content: space-between;
-  width: 100%;
-  
-  div {
-    width: 47%;
-  } 
-}
 textarea {
   min-height: 140px;
   max-width: 100%;
-}
-.button-container button {
-  display: inline-block;
-  margin-right: 20px;
 }
 .progress {
     margin-bottom: 10px;
