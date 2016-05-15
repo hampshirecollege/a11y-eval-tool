@@ -9,8 +9,9 @@
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
     "lint": "eslint 'src/**/*.@(js|jsx)'",
-    "test": "npm run lint && mocha test/.setup.js test/**",
-    "test:watch": "mocha -w test/.setup.js test/**/*-test.js"
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register -r test/.setup.js --recursive ./test",
+    "test:watch": "NODE_ENV=test mocha -w --compilers js:babel-core/register -r test/.setup.js --recursive ./test",
+    "test:watch-min": "NODE_ENV=test mocha -w --compilers js:babel-core/register --reporter min -r test/.setup.js --recursive ./test"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "he": "^1.0.0",
     "html-webpack-plugin": "^2.16.0",
+    "ignore-styles": "^2.0.0",
     "jsdom": "^8.4.1",
     "json-loader": "^0.5.4",
     "lodash.map": "^4.3.0",
