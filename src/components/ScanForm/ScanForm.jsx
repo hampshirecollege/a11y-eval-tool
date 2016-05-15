@@ -2,12 +2,16 @@
  * External dependencies
  */
 import React, { PropTypes } from 'react';
-import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import Button from 'react-bootstrap/lib/Button';
 
 /**
  * Internal dependencies
  */
 import { ExportModal } from '../../components';
+import styles from './ScanForm.css';
 
 const propTypes = {
   // dataLength: Length of data array, if > 0, then render export button
@@ -32,7 +36,7 @@ const propTypes = {
 function ScanForm({ dataLength, preventDefault, scanURLs, exportReport, showModal, openModal, closeModal }) {
   return (
     <form onSubmit={preventDefault}>
-      <div className="options-key-container">
+      <div className={styles['options-key-container']}>
         <FormGroup controlId="scan-type">
           <ControlLabel>Scan Type</ControlLabel>
           <FormControl componentClass="select">
@@ -54,7 +58,7 @@ function ScanForm({ dataLength, preventDefault, scanURLs, exportReport, showModa
           The protocol (http or https) is not necessary and will be stripped from the results."
         />
       </FormGroup>
-      <div className="button-container" aria-live="polite">
+      <div className={styles['button-container']} aria-live="polite">
         <Button onClick={scanURLs}>Scan URLs</Button>
         {dataLength !== 0 &&
           <Button id="export-button" onClick={openModal}>Export Report</Button>

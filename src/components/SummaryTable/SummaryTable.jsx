@@ -2,7 +2,8 @@
  * External dependencies
  */
 import React, { Component, PropTypes } from 'react';
-import { Panel, Table } from 'react-bootstrap';
+import Panel from 'react-bootstrap/lib/Panel';
+import Table from 'react-bootstrap/lib/Table';
 import map from 'lodash.map';
 
 /**
@@ -42,7 +43,7 @@ export default class SummaryTable extends Component {
                 <th scope="row">
                   <a href={`//${item.entry}`} target="_blank">
                     {item.error &&
-                      <span className="row-err">{item.error}</span>
+                      <span className={styles.rowErr}>{item.error}</span>
                     }
                     {` ${item.entry}`}
                   </a>

@@ -2,7 +2,11 @@
  * External dependencies
  */
 import React, { PropTypes } from 'react';
-import { Modal, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import Modal from 'react-bootstrap/lib/Modal';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import Button from 'react-bootstrap/lib/Button';
 
 const propTypes = {
   // preventDefault: Prevents form submission

@@ -2,7 +2,9 @@
  * External dependencies
  */
 import React, { Component, PropTypes } from 'react';
-import { Panel, Tabs, Tab } from 'react-bootstrap';
+import Panel from 'react-bootstrap/lib/Panel';
+import Tabs from 'react-bootstrap/lib/Tabs';
+import Tab from 'react-bootstrap/lib/Tab';
 import map from 'lodash.map';
 
 /**

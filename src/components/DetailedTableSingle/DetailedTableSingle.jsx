@@ -2,7 +2,10 @@
  * External dependencies
  */
 import React, { Component, PropTypes } from 'react';
-import { Table, Button, Modal, Glyphicon } from 'react-bootstrap';
+import Table from 'react-bootstrap/lib/Table';
+import Button from 'react-bootstrap/lib/Button';
+import Modal from 'react-bootstrap/lib/Modal';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import map from 'lodash.map';
 import he from 'he';
 
