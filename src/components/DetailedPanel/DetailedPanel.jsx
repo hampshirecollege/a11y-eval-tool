@@ -56,21 +56,44 @@ export default class DetailedPanel extends Component {
     return (
       <Panel aria-live="polite" header={<h2>Detailed Reports</h2>}>
         {map(this.props.data, (item, index) =>
-          <Panel key={index} header={<h3><a href={`//${item.entry}`} target="_blank">{item.entry}</a></h3>}>
+          <Panel
+            key={index}
+            header={
+              <h3>
+                <a href={`//${item.entry}`} target="_blank">{item.entry}</a>
+              </h3>
+            }
+          >
             {item.error === '' ?
-              <Tabs id={`${item.entry}-tabs`} defaultActiveKey={1} animation={false}>
-                {this.renderTab('error', 1, 'Errors:', 'Errors for', item, index, item.data.categories.error)}
-                {this.renderTab('alert', 2, 'Alerts:', 'Alerts for', item, index, item.data.categories.alert)}
-                {this.renderTab('feature', 3, 'Features:', 'Features for', item, index, item.data.categories.feature)}
-                {this.renderTab('structure', 4, 'Structure:', 'Structure items for', item, index,
-                  item.data.categories.structure
-                )}
-                {this.renderTab('html5', 5, 'HTML5 and ARIA:', 'HTML5 and ARIA items for', item, index,
-                  item.data.categories.html5
-                )}
-                {this.renderTab('contrast', 6, 'Contrast:', 'Contrast items for', item, index,
-                  item.data.categories.contrast
-                )}
+              <Tabs
+                id={`${item.entry}-tabs`}
+                defaultActiveKey={1}
+                animation={false}
+              >
+                {this.renderTab(
+                  'error', 1, 'Errors:', 'Errors for', item, index,
+                  item.data.categories.error)
+                }
+                {this.renderTab(
+                  'alert', 2, 'Alerts:', 'Alerts for', item, index,
+                  item.data.categories.alert)
+                }
+                {this.renderTab(
+                  'feature', 3, 'Features:', 'Features for', item, index,
+                  item.data.categories.feature)
+                }
+                {this.renderTab(
+                  'structure', 4, 'Structure:', 'Structure items for', item,
+                  index, item.data.categories.structure)
+                }
+                {this.renderTab(
+                  'html5', 5, 'HTML5 and ARIA:', 'HTML5 and ARIA items for',
+                  item, index, item.data.categories.html5)
+                }
+                {this.renderTab(
+                  'contrast', 6, 'Contrast:', 'Contrast items for', item,
+                  index, item.data.categories.contrast)
+                }
                 <Tab
                   tabClassName={styles.all}
                   eventKey={7}
@@ -83,7 +106,9 @@ export default class DetailedPanel extends Component {
                   />
                 </Tab>
               </Tabs>
-              : <span className={styles.rowErr}>{item.error} unable to scan {item.entry}, check that the URL is correct.
+              : <span className={styles.rowErr}>
+                {item.error} unable to scan {item.entry},
+                check that the URL is correct.
               </span>
             }
           </Panel>

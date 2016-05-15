@@ -22,7 +22,14 @@ const propTypes = {
     PropTypes.string,
   ]).isRequired,
   // itemType: Report item type
-  itemType: PropTypes.oneOf(['ERRORS', 'ALERTS', 'FEATURES', 'STRUCTURE', 'HTML5 and ARIA', 'CONTRAST']),
+  itemType: PropTypes.oneOf([
+    'ERRORS',
+    'ALERTS',
+    'FEATURES',
+    'STRUCTURE',
+    'HTML5 and ARIA',
+    'CONTRAST',
+  ]),
   // caption: Table caption for screen readers
   caption: PropTypes.string.isRequired,
   // data: WAVE accessibility report type 2 data for specific item type
@@ -32,7 +39,12 @@ const propTypes = {
   ]).isRequired,
   // thStyle: Table heading styles for font and background colors
   thStyle: PropTypes.oneOf([
-    'th-error', 'th-alert', 'th-feature', 'th-structure', 'th-html5', 'th-contrast',
+    'th-error',
+    'th-alert',
+    'th-feature',
+    'th-structure',
+    'th-html5',
+    'th-contrast',
   ]).isRequired,
 };
 
@@ -59,25 +71,48 @@ export default class DetailedTableSingle extends Component {
   }
 
   openModal(key) {
-    this.setState({ showModal: Object.assign({}, this.state.showModal, this.state.showModal[key] = true) });
+    this.setState({
+      showModal: Object.assign({},
+        this.state.showModal,
+        this.state.showModal[key] = true
+      ),
+    });
   }
 
   closeModal(key) {
-    this.setState({ showModal: Object.assign({}, this.state.showModal, this.state.showModal[key] = false) });
+    this.setState({
+      showModal: Object.assign({},
+        this.state.showModal,
+        this.state.showModal[key] = false
+      ),
+    });
   }
 
   render() {
     return (
-      <Table className={styles.resultsTable} fill striped bordered responsive tabIndex="0">
+      <Table
+        className={styles.resultsTable}
+        fill
+        striped
+        bordered
+        responsive
+        tabIndex="0"
+      >
         <caption className="sr-only">{this.props.caption}</caption>
         <thead>
           {this.props.data.count > 0 &&
             <tr>
               <th className={styles[this.props.thStyle]} scope="col">
-                {this.props.itemType !== undefined ? this.props.itemType : 'ITEM'}
+                {this.props.itemType !== undefined ? this.props.itemType
+                  : 'ITEM'
+                }
               </th>
-              <th className={styles[this.props.thStyle]} scope="col">COUNT</th>
-              <th className={styles[this.props.thStyle]} scope="col">DESCRIPTION</th>
+              <th className={styles[this.props.thStyle]} scope="col">
+                COUNT
+              </th>
+              <th className={styles[this.props.thStyle]} scope="col">
+                DESCRIPTION
+              </th>
             </tr>
           }
         </thead>
@@ -90,15 +125,23 @@ export default class DetailedTableSingle extends Component {
                 <Button
                   id={`${this.props.siteIndex}-button-${item.id}`}
                   bsStyle="link"
-                  onClick={() => this.openModal(`${this.props.siteIndex}-${item.id}`)}
+                  onClick={() => this.openModal(
+                    `${this.props.siteIndex}-${item.id}`
+                  )}
                 >
                   <Glyphicon glyph="info-sign" />
                   &nbsp;{item.description}
                 </Button>
                 <Modal
-                  show={this.state.showModal[`${this.props.siteIndex}-${item.id}`]}
-                  onHide={() => this.closeModal(`${this.props.siteIndex}-${item.id}`)}
-                  onExited={() => document.getElementById(`${this.props.siteIndex}-button-${item.id}`).focus()}
+                  show={this.state.showModal[
+                    `${this.props.siteIndex}-${item.id}`
+                  ]}
+                  onHide={() => this.closeModal(
+                    `${this.props.siteIndex}-${item.id}`
+                  )}
+                  onExited={() => document.getElementById(
+                    `${this.props.siteIndex}-button-${item.id}`
+                  ).focus()}
                 >
                   <Modal.Header closeButton>
                     <Modal.Title>{item.description}</Modal.Title>
@@ -114,15 +157,24 @@ export default class DetailedTableSingle extends Component {
                     <p>{he.decode(`${waveDocs[item.id].data.details}`)}</p>
                     <p><strong>Standards and Guidelines</strong></p>
                     <ul>
-                      {map(waveDocs[item.id].data.guidelines, (guideline, index) =>
-                        <li key={`${item.id}-${index}`}>
-                          <a href={guideline.link} target="_blank">{guideline.name}</a>
-                        </li>
+                      {map(waveDocs[item.id].data.guidelines,
+                        (guideline, index) =>
+                          <li key={`${item.id}-${index}`}>
+                            <a href={guideline.link} target="_blank">
+                              {guideline.name}
+                            </a>
+                          </li>
                       )}
                     </ul>
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button onClick={() => this.closeModal(`${this.props.siteIndex}-${item.id}`)}>Close</Button>
+                    <Button
+                      onClick={() => this.closeModal(
+                        `${this.props.siteIndex}-${item.id}`
+                      )}
+                    >
+                      Close
+                    </Button>
                   </Modal.Footer>
                 </Modal>
               </td>

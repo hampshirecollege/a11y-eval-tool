@@ -33,7 +33,8 @@ const propTypes = {
 /**
  * Component
  */
-function ScanForm({ dataLength, preventDefault, scanURLs, exportReport, showModal, openModal, closeModal }) {
+function ScanForm({ dataLength, preventDefault, scanURLs, exportReport,
+showModal, openModal, closeModal }) {
   return (
     <form onSubmit={preventDefault}>
       <div className={styles['options-key-container']}>
@@ -55,7 +56,8 @@ function ScanForm({ dataLength, preventDefault, scanURLs, exportReport, showModa
           componentClass="textarea"
           spellCheck="false"
           placeholder="Enter a carriage return separated URL list to scan.
-          The protocol (http or https) is not necessary and will be stripped from the results."
+          The protocol (http or https) is not necessary and will be
+          stripped from the results."
         />
       </FormGroup>
       <div className={styles['button-container']} aria-live="polite">
@@ -63,7 +65,12 @@ function ScanForm({ dataLength, preventDefault, scanURLs, exportReport, showModa
         {dataLength !== 0 &&
           <Button id="export-button" onClick={openModal}>Export Report</Button>
         }
-        <ExportModal show={showModal} close={closeModal} exportReport={exportReport} preventDefault={preventDefault} />
+        <ExportModal
+          show={showModal}
+          close={closeModal}
+          exportReport={exportReport}
+          preventDefault={preventDefault}
+        />
       </div>
     </form>
   );

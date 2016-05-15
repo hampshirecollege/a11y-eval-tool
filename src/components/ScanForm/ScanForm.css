@@ -1,0 +1,15 @@
+.options-key-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: stretch;
+  justify-content: space-between;
+  width: 100%;
+  
+  div {
+    width: 47%;
+  } 
+}
+.button-container button {
+  display: inline-block;
+  margin-right: 20px;
+}

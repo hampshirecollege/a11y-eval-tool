@@ -24,7 +24,11 @@ const propTypes = {
  */
 function ExportModal({ show, close, exportReport, preventDefault }) {
   return (
-    <Modal show={show} onHide={close} onExited={() => document.getElementById('export-button').focus()}>
+    <Modal
+      show={show}
+      onHide={close}
+      onExited={() => document.getElementById('export-button').focus()}
+    >
       <Modal.Header closeButton>
         <Modal.Title>Export Report Data</Modal.Title>
       </Modal.Header>
@@ -33,9 +37,9 @@ function ExportModal({ show, close, exportReport, preventDefault }) {
           <FormGroup controlId="file-type-select">
             <ControlLabel>Select File Format</ControlLabel>
             <FormControl componentClass="select">
-              <option value="json">JSON</option>
-              <option value="csv">CSV</option>
               <option value="html">HTML</option>
+              <option value="csv">CSV</option>
+              <option value="json">JSON</option>
             </FormControl>
           </FormGroup>
           <FormGroup controlId="filename">
