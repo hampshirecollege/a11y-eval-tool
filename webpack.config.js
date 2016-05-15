@@ -12,7 +12,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: './static/bundle.js',
+    filename: './static/bundle.min.js',
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -30,7 +30,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       hash: true,
       inject: 'body',
-      template: './index.prod.html',
+      template: './index.html',
     }),
     new ExtractTextPlugin('./static/style.css', {
       allChunks: true,

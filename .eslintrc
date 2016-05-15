@@ -1,7 +1,7 @@
 {
   "extends": "airbnb",
   "rules": {
-    "max-len": [1, 120, 2, {ignoreComments: true}],
+    "max-len": [1, 80, 2, {ignoreComments: true}],
     "react/prefer-stateless-function": 1
   }
 }

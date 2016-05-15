@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 
@@ -11,11 +12,15 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/',
+    filename: './static/bundle.min.js',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin({
+      hash: true,
+      inject: 'body',
+      template: './index.html',
+    }),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       Promise: 'exports?global.Promise!es6-promise',
