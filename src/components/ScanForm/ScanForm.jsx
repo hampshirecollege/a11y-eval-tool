@@ -42,7 +42,7 @@ showModal, openModal, closeModal }) {
           <ControlLabel>Scan Type</ControlLabel>
           <FormControl componentClass="select">
             <option value="1">Summary (1 credit)</option>
-            <option value="2">Detailed (2 credits)</option>
+            <option value="2">Summary & Detailed (2 credits)</option>
           </FormControl>
         </FormGroup>
         <FormGroup controlId="api-key">

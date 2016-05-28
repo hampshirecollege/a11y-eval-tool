@@ -174,7 +174,10 @@ export default class A11yMain extends Component {
           <SummaryTable data={this.state.reportData} />
         }
         {(this.state.scanType === 2 && this.state.reportData.length !== 0) &&
-          <DetailedPanel data={this.state.reportData} />
+          <div>
+            <SummaryTable data={this.state.reportData} />
+            <DetailedPanel data={this.state.reportData} />
+          </div>
         }
       </div>
     );
