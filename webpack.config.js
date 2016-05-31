@@ -24,7 +24,6 @@ module.exports = {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
-        beautify: true,
         warnings: false,
       },
     }),
