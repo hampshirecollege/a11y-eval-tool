@@ -149,7 +149,6 @@ function toHTMLDetailed(data) {
       tr.sum:nth-child(even) {background:#f9f9f9}
       tr.sum:nth-child(odd) {background: white}
       tbody tr.sum:hover, tbody tr:hover {background-color:#f5f5f5}
-      .th-site {}
       .th-errors {background-color:#f2dede;color:#a94442;}
       .th-alerts {background-color:#fcf8e3;color:#8a6d3b;}
       .th-features {background-color:#dff0d8;color:#3c763d;}
@@ -168,7 +167,7 @@ function toHTMLDetailed(data) {
         <caption>WAVE accessibility summary report: ${moment().format('MMMM Do YYYY, h:mma')}</caption>
         <thead>
           <tr>
-           <th class="th-site" scope="col" style="height:17.0pt;width:145pt">SITE URL</th>
+           <th scope="col" style="height:17.0pt;width:145pt">SITE URL</th>
            <th class="th-errors" scope="col" style="width:79pt">ERRORS</th>
            <th class="th-alerts" scope="col" style="width:79pt">ALERTS</th>
            <th class="th-features" scope="col" style="width:86pt">FEATURES</th>
@@ -201,11 +200,11 @@ function toHTMLDetailed(data) {
         <caption>WAVE accessibility detailed report for ${site.entry}: ${moment().format('MMMM Do YYYY, h:mma')}</caption>
         <thead>
           <tr>
-           <th class="th-site" scope="col" style="height:17.0pt;width:145pt">SITE URL</th>
-           <th class="th-errors" scope="col" style="width:79pt">ITEM TYPE</th>
-           <th class="th-alerts" scope="col" style="width:79pt">ITEM ID</th>
-           <th class="th-features" scope="col" style="width:86pt">COUNT</th>
-           <th class="th-structure" scope="col" style="width:93pt">DESCRIPTION</th>
+           <th scope="col" style="height:17.0pt;width:145pt">SITE URL</th>
+           <th scope="col" style="width:79pt">ITEM TYPE</th>
+           <th scope="col" style="width:79pt">ITEM ID</th>
+           <th scope="col" style="width:86pt">COUNT</th>
+           <th scope="col" style="width:93pt">DESCRIPTION</th>
           </tr>
         </thead>
         <tbody>`;
