@@ -7,11 +7,12 @@ import Panel from 'react-bootstrap/lib/Panel';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import asyncMap from 'async.map';
 import { saveAs } from 'browser-filesaver';
+import moment from 'moment';
 
 /**
  * Internal dependencies
  */
-import { ScanForm, SummaryTable, DetailedPanel } from '../components';
+import { ScanForm, SummaryTable, DetailedPanel, RecentResultsPanel } from '../components';
 import * as Convert from '../utils/convertData';
 
 export default class A11yMain extends Component {
@@ -25,6 +26,7 @@ export default class A11yMain extends Component {
       progressed: 1,
       totalProgress: 0,
       showModal: false,
+      recentResults: [],
     };
 
     this.preventDefault = this.preventDefault.bind(this);
@@ -32,6 +34,14 @@ export default class A11yMain extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.exportReport = this.exportReport.bind(this);
+  }
+
+  componentWillMount() {
+    const recentResults = JSON.parse(window.localStorage.getItem('recentResults'));
+
+    if (recentResults) {
+      this.setState({ recentResults });
+    }
   }
 
   /**
@@ -54,6 +64,7 @@ export default class A11yMain extends Component {
         html5: { count: 'n/a' },
       },
     };
+    const timestamp = moment().format('MMMM Do YYYY, h:mma');
     let progressed = 1;
 
     if (apiKey.length !== 11) {
@@ -80,16 +91,26 @@ export default class A11yMain extends Component {
             callback(null, { entry, error: 'Error:', data: errorData });
           }
         }).catch((err) => { // unsuccessful JSON response
-          console.log(err);
+          console.error(err);
           callback(null, { entry, error: 'Error:', data: errorData });
         });
     }, (err, results) => {
+      const recentResults = this.state.recentResults;
+      console.log(recentResults);
+      recentResults.push({
+        timestamp,
+        scanType,
+        reportData: results,
+      });
+      console.log(recentResults);
+      window.localStorage.setItem('recentResults', JSON.stringify(recentResults));
       this.setState({
         scanType,
         isFetching: false,
         reportData: results,
         totalProgress: 0,
         progressed: 1,
+        recentResults,
       });
     });
   }
@@ -147,6 +168,9 @@ export default class A11yMain extends Component {
           Please visit their websites to learn more about web accessibility
           and to purchase API credits.
         </Alert>
+        {this.state.recentResults.length > 0 &&
+          <RecentResultsPanel recentResults={this.state.recentResults} />
+        }
         <Panel header={<h2>Scan Info.</h2>}>
           <ScanForm
             dataLength={this.state.reportData.length}

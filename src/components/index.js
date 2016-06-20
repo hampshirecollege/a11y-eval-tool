@@ -6,3 +6,5 @@ export { default as DetailedTableSingle }
   from './DetailedTableSingle/DetailedTableSingle.jsx';
 export { default as DetailedTableAll }
   from './DetailedTableAll/DetailedTableAll.jsx';
+export { default as RecentResultsPanel }
+  from './RecentResultsPanel/RecentResultsPanel.jsx';
