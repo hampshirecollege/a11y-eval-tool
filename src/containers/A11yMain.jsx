@@ -34,6 +34,8 @@ export default class A11yMain extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.exportReport = this.exportReport.bind(this);
+    this.showRecentResult = this.showRecentResult.bind(this);
+    this.removeRecentResult = this.removeRecentResult.bind(this);
   }
 
   componentWillMount() {
@@ -67,8 +69,8 @@ export default class A11yMain extends Component {
     const timestamp = moment().format('MMMM Do YYYY, h:mma');
     let progressed = 1;
 
-    if (apiKey.length !== 11) {
-      alert('API key must be 11 characters long');
+    if (apiKey.length < 1) {
+      alert('API key is required.');
       return;
     }
 
@@ -96,13 +98,11 @@ export default class A11yMain extends Component {
         });
     }, (err, results) => {
       const recentResults = this.state.recentResults;
-      console.log(recentResults);
       recentResults.push({
         timestamp,
         scanType,
         reportData: results,
       });
-      console.log(recentResults);
       window.localStorage.setItem('recentResults', JSON.stringify(recentResults));
       this.setState({
         scanType,
@@ -145,6 +145,27 @@ export default class A11yMain extends Component {
     this.setState({ showModal: false });
   }
 
+  showRecentResult(resultData, scanType) {
+    this.setState({
+      scanType,
+      isFetching: false,
+      reportData: resultData,
+      totalProgress: 0,
+      progressed: 1,
+    });
+  }
+
+  removeRecentResult(recentResults, index) {
+    recentResults.splice(index, 1);
+    this.setState({
+      scanType: 0,
+      isFetching: false,
+      reportData: [],
+      recentResults,
+    });
+    window.localStorage.setItem('recentResults', JSON.stringify(recentResults));
+  }
+
   preventDefault(event) {
     event.preventDefault();
   }
@@ -169,7 +190,11 @@ export default class A11yMain extends Component {
           and to purchase API credits.
         </Alert>
         {this.state.recentResults.length > 0 &&
-          <RecentResultsPanel recentResults={this.state.recentResults} />
+          <RecentResultsPanel
+            recentResults={this.state.recentResults}
+            showRecentResult={this.showRecentResult}
+            removeRecentResult={this.removeRecentResult}
+          />
         }
         <Panel header={<h2>Scan Info.</h2>}>
           <ScanForm
