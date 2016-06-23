@@ -1,0 +1,6 @@
+.actionsCol {
+  width: 35%;
+}
+:global(.glyphicon-remove) {
+  color: #AF4035	;
+}
